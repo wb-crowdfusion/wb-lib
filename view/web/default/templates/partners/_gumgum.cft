@@ -1,0 +1,12 @@
+{% /* $Id: _omniture.cft 603 2011-07-20 04:10:33Z 12dnetworks $ */ %}
+{% /*
+GumGum Partner JS (no global vars or params)
+
+*/ %}
+
+{% begin contents %}
+
+<script type="text/javascript">ggv2id = "timewarn";</script>
+<script type="text/javascript" src="//cdn.gumgum.com/javascripts/ggv2.js"></script>
+
+{% end %}

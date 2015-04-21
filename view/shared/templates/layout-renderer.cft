@@ -1,0 +1,82 @@
+{% /* $Id: static-block.cft 1697 2011-08-12 23:31:44Z 12dnetworks $ */ %}
+{% /*
+
+This file is designed to render target content into the layout's
+placeholders via route control variables.  This should not be used
+when the root template requires a datasource and may modify the
+layout variables prior to calling the layout.
+
+In limited cases the target content may have a datasource and even
+set globals (typically not done in layout blocks) but it must only
+be in circumstances where the content doesn't query data that must
+then be available in other layout blocks.
+
+Available layout control variables...
+
+'/some_route/?' => array (
+    'layout' => 'layouts/_two-column.cft', // if not supplied then layouts/_content-only.cft is used
+    'layout_fallback' => '', // optional, use with layout if you want to look for an ideal layout first
+    'layout_cms_nocache' => true, // optional, adds NoCache=1 to template if user has cms-view permission
+    'layout_cache' => 'default', // optional, a wbcache duration name, uses default if not set.  set to 'none' for nocache
+    'layout_debug' => true, // optional, renders layout vars instead of loading layout
+
+    // all template paths are optional
+    'layout_globals' => 'path/to/template.cft',
+    'layout_htmlHead' => 'path/to/template.cft',
+    'layout_afterHeader' => 'path/to/template.cft',
+    'layout_content' => 'path/to/template.cft',
+    'layout_sidebar' => 'path/to/template.cft',
+    'layout_afterFooter' => 'path/to/template.cft',
+
+    'layout_bodyId' => 'body-id', // optional
+    'layout_bodyClass' => 'body-class', // optional
+
+    // gets the values of the request attributes and adds them to the template vars
+    // these are NOT accessible by those names, it just ensures you can safely use them
+    // in a template.  the access to the input would still be INPUT_FOO for "?foo=bar"
+    '_caching_attributes' => 'page,letter,maxId'
+
+    'view' => 'layout-renderer.cft' // required, can be used in action views as well
+),
+
+*/ %}
+
+{% set NoCache %}{% if Data:CONTROL_LAYOUT_CMS_NOCACHE %}{% if Data:USER_LOGGED_IN %}{% if permission?action=cms-view %}1{% else %}0{% endif %}{% else %}0{% endif %}{% else %}0{% endif %}{% end %}
+{% set CacheTime %}{% filter wbcache-get-duration?name=Data:CONTROL_LAYOUT_CACHE %}{% end %}
+{% setGlobal FullPageCacheTime %}{% filter wbcache-get-duration?name=Data:CONTROL_LAYOUT_CACHE&FullPage=true %}{% end %}
+
+{% set _caching_attributes %}{% if Data:CONTROL__CACHING_ATTRIBUTES %}{% filter wblayout-caching-attributes?value=Data:CONTROL__CACHING_ATTRIBUTES %}{% endif %}{% end %}
+{% set LAYOUT %}{% if Data:CONTROL_LAYOUT %}%CONTROL_LAYOUT%{% endif %}{% end %}
+{% set LAYOUT_FALLBACK %}{% if Data:CONTROL_LAYOUT_FALLBACK %}%CONTROL_LAYOUT_FALLBACK%{% endif %}{% end %}
+{% set LAYOUT_Globals %}{% if Data:CONTROL_LAYOUT_GLOBALS %}%CONTROL_LAYOUT_GLOBALS%{% endif %}{% end %}
+{% set LAYOUT_HtmlHead %}{% if Data:CONTROL_LAYOUT_HTMLHEAD %}%CONTROL_LAYOUT_HTMLHEAD%{% endif %}{% end %}
+{% set LAYOUT_AfterHeader %}{% if Data:CONTROL_LAYOUT_AFTERHEADER %}%CONTROL_LAYOUT_AFTERHEADER%{% endif %}{% end %}
+{% set LAYOUT_Content %}{% if Data:CONTROL_LAYOUT_CONTENT %}%CONTROL_LAYOUT_CONTENT%{% endif %}{% end %}
+{% set LAYOUT_Sidebar %}{% if Data:CONTROL_LAYOUT_SIDEBAR %}%CONTROL_LAYOUT_SIDEBAR%{% endif %}{% end %}
+{% set LAYOUT_AfterFooter %}{% if Data:CONTROL_LAYOUT_AFTERFOOTER %}%CONTROL_LAYOUT_AFTERFOOTER%{% endif %}{% end %}
+{% set LAYOUT_BodyId %}{% if Data:CONTROL_LAYOUT_BODYID %}%CONTROL_LAYOUT_BODYID%{% endif %}{% end %}
+{% set LAYOUT_BodyClass %}{% if Data:CONTROL_LAYOUT_BODYCLASS %}%CONTROL_LAYOUT_BODYCLASS%{% endif %}{% end %}
+
+
+{% begin contents %}
+
+{% if Data:CONTROL_LAYOUT_DEBUG %}
+    <pre>
+        LAYOUT [%LAYOUT%] Exists? {% filter template-exists?name=Data:LAYOUT %}
+        LAYOUT_FALLBACK [%LAYOUT_FALLBACK%] Exists? {% filter template-exists?name=Data:LAYOUT_FALLBACK %}
+        Content Only Layout Exists? {% filter template-exists?name=layouts/_content-only.cft %}
+    </pre>
+    {% filter display-show-vars %}
+{% else %}
+    {% if Data:LAYOUT && template-exists?name=Data:LAYOUT %}
+        {% template %LAYOUT%?inherit=true %}
+    {% else %}
+        {% if Data:LAYOUT_FALLBACK && template-exists?name=Data:LAYOUT_FALLBACK %}
+            {% template %LAYOUT_FALLBACK%?inherit=true %}
+        {% else %}
+            {% template layouts/_content-only.cft?inherit=true %}
+        {% endif %}
+    {% endif %}
+{% endif %}
+
+{% end %}

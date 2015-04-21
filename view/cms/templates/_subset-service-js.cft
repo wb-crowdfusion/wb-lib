@@ -1,0 +1,10 @@
+{% /* $Id: _content-only.cft 2883 2011-12-27 19:48:43Z 12dnetworks $ */ %}
+{% /*
+*/ %}
+
+{% begin contents %}
+
+{% asset js?src=js/SubsetService.js&pack=true %}
+{% asset js?src=js/SubsetTagWidget.js&pack=true %}
+
+{% end %}

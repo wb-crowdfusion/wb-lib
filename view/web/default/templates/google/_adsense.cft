@@ -1,0 +1,20 @@
+{% /* $Id$ */ %}
+{% /*
+google adsense ad script and containers
+
+*/ %}
+
+{% set Pos %}{% end %}
+{% set CacheTime %}{% filter wbcache-get-duration %}{% end %}
+{% set DEFER %}1{% end %}
+
+
+{% begin contents %}
+
+<div id="ad_unit%Pos%" class="adsense-wrap ad_unit%Pos% clearfix">
+    <div class="adsense-before"></div>
+    <div id="ad_unit%Pos%" class="ad_box1"></div>
+    <div class="adsense-after"></div>
+</div>
+
+{% end %}

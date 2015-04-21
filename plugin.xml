@@ -1,0 +1,66 @@
+<?xml version='1.0'?>
+<plugin>
+
+    <info>
+        <title>WB - lib</title>
+        <provider>Warner Bros, Inc.</provider>
+        <description>Provides various aspects, classes and templates for common functionality used on WB sites.</description>
+        <priority>100</priority>
+        <version>1.1.8</version>
+        <license></license>
+        <dependencies></dependencies>
+        <cfversions>2.3.7</cfversions>
+    </info>
+
+    <config>
+        <![CDATA[
+// generic names for images
+/*
+$properties['wblib.image.names'] = array(
+    'portrait'  => array('Title' => 'Portrait',  'Size' => '100x200'),
+    'landscape' => array('Title' => 'Landscape', 'Size' => '200x100'),
+);
+*/
+$properties['wblib.image.names'] = array();
+
+// named cache durations (in seconds)
+$properties['wbcache.durations'] = array(
+    'default'   => 300,
+    'micro'     => 30,
+    'tiny'      => 90,
+    'short'     => 180,
+    'long'      => 600,
+    'verylong'  => 86400, // 24 hours
+    'superlong' => 604800, // 1 week
+    'forever'   => 31536000, // 1 year
+);
+
+// kontera (contextual ad provider - linkifies text)
+$properties['wbkontera.publisherId'] = '';
+$properties['wbkontera.adLinkColor'] = 'blue';
+$properties['wbkontera.isBoldActive'] = 'no';
+
+// tynt (copy paste tracker)
+$properties['wbtynt.id'] = '';
+
+// google analytics
+$properties['wbgoogle.analytics.account'] = '';
+
+// chartbeat (tracker)
+$properties['wbchartbeat.uid'] = '';
+$properties['wbchartbeat.domain'] = '';
+
+// addthis (sharing widgets)
+$properties['wbaddthis.pubId'] = '';
+
+// outbrain (related links/content)
+$properties['wboutbrain.template'] = '';
+
+// adsonar (sponsored ads)
+$properties['wbadsonar.pid'] = '';
+$properties['wbadsonar.ps'] = '-1';
+$properties['wbadsonar.jv'] = 'ads.adsonar.com';
+        ]]>
+    </config>
+
+</plugin>

@@ -1,0 +1,16 @@
+{% /* $Id: $ */ %}
+{% /*
+
+*/ %}
+
+{% set Items %}{% end %}
+{% set Delimiter %},{% end %}
+{% set CssBaseUrl %}css/{% end %}
+{% set CssExt %}.css{% end %}
+{% set CssMin %}true{% end %}
+{% set DataSource %}wblib-explode-items{% end %}
+{% set CacheTime %}{% filter wbcache-get-duration %}{% end %}
+
+
+{% begin contents %}{% asset css?src=%CssBaseUrl%%Item%%CssExt%&min=%CssMin% %}{% end %}
+

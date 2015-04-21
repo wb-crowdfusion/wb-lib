@@ -1,0 +1,24 @@
+<?xml version='1.0'?>
+<aspect
+        xmlns="http://www.crowdfusion.com/schema/aspect"
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:schemaLocation="http://www.crowdfusion.com/schema/aspect http://www.crowdfusion.com/schema/crowdfusion-aspect-2.0.xsd">
+
+    <info>
+        <name>WB Mixin: Destination</name>
+        <description>Given to elements that need to set a destination url (absolute or relative).</description>
+        <elementmode>many</elementmode>
+    </info>
+
+    <meta_defs>
+        <meta id="#destination-url">
+            <title>Destination URL</title>
+            <validation datatype="string" max="255"/>
+        </meta>
+        <meta id="#destination-target">
+            <title>Destination Target</title>
+            <validation datatype="string" max="20" match="^[A-Za-z0-9_]+$"/>
+        </meta>
+    </meta_defs>
+
+</aspect>

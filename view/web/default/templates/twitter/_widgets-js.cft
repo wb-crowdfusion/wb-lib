@@ -1,0 +1,12 @@
+{% /* $Id: _google-analytics.cft 1603 2011-08-11 22:42:06Z 12dnetworks $ */ %}
+{% /*
+The twitter widget js.
+https://dev.twitter.com/docs/tweet-button
+
+*/ %}
+
+{% begin contents %}
+
+<script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0];if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src="https://platform.twitter.com/widgets.js";fjs.parentNode.insertBefore(js,fjs);}}(document,"script","twitter-wjs");</script>
+
+{% end %}

@@ -1,0 +1,18 @@
+<?xml version='1.0'?>
+<context
+    xmlns="http://www.crowdfusion.com/schema/context"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://www.crowdfusion.com/schema/context http://www.crowdfusion.com/schema/crowdfusion-context-2.0.xsd">
+
+    <objects>
+        <object id="PresenterWebController" class="CrowdFusion\Framework\Controller\PresenterController">
+            <alias>PresenterCmsController</alias>
+            <alias>PresenterApiController</alias>
+            <alias>PresenterAppController</alias>
+            <alias>PresenterFeedsController</alias>
+            <alias>PresenterWebapiController</alias>
+        </object>
+
+        <object id="SimpleFeedService" class="WB\SimpleFeed\SimpleFeedService" />
+    </objects>
+</context>

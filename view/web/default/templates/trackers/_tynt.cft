@@ -1,0 +1,27 @@
+{% /* $Id: _tynt.cft 1877 2011-08-18 20:41:24Z 12dnetworks $ */ %}
+{% /*
+tynt tracking file.  loaded from /includes/_footer-scripts.cft
+
+*/ %}
+
+{% begin contents %}
+
+<!-- start: Tynt tag -->
+<script type="text/javascript">
+if(document.location.protocol=='http:'){
+    var Tynt=Tynt||[];
+    Tynt.push('{% filter wbtynt-id %}');
+    Tynt.i={"ap":"Read more:"};
+    (function(){
+        var s=document.createElement('script');
+        s.async = true;
+        s.type="text/javascript";
+        s.src='http://tcr.tynt.com/ti.js';
+        var h=document.getElementsByTagName('script')[0];
+        h.parentNode.insertBefore(s,h);
+    })();
+}
+</script>
+<!-- end: Tynt tag -->
+
+{% end %}

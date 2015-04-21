@@ -1,0 +1,64 @@
+{% /* $Id: single.cft 2809 2011-12-23 19:02:05Z 12dnetworks $ */ %}
+{% /*
+should be included with inherit=true and the string that
+represents the template code to render should be passed in
+as the "Code" param.
+
+params:
+    Code: the string containing the template code to evaluate
+    EventFilter: the name of the event to announce (optional)
+    PassLocals: if EventFilter is used, what local template vars should
+                be passed along with the transport (optional)
+*/ %}
+
+{% set Code %}{% end %}
+{% set EventFilter %}{% end %}
+{% set PassLocals %}{% end %}
+
+{% begin contents %}
+{% if Data:EventFilter %}
+    {% filter wbevent-filter?name=Data:EventFilter&value=Data:Code&PassLocals=Data:PassLocals %}
+{% else %}
+    {% filter wbdisplay-dynamic?value=Data:Code %}
+{% endif %}
+{% end %}
+
+{% begin rss-contents %}
+{% if Data:EventFilter %}
+    {% filter wbevent-filter?name=Data:EventFilter&value=Data:Code&PassLocals=Data:PassLocals %}
+{% else %}
+    {% filter wbdisplay-dynamic?value=Data:Code %}
+{% endif %}
+{% end %}
+
+{% begin txt-contents %}
+{% if Data:EventFilter %}
+    {% filter wbevent-filter?name=Data:EventFilter&value=Data:Code&PassLocals=Data:PassLocals %}
+{% else %}
+    {% filter wbdisplay-dynamic?value=Data:Code %}
+{% endif %}
+{% end %}
+
+{% begin js-contents %}
+{% if Data:EventFilter %}
+    {% filter wbevent-filter?name=Data:EventFilter&value=Data:Code&PassLocals=Data:PassLocals %}
+{% else %}
+    {% filter wbdisplay-dynamic?value=Data:Code %}
+{% endif %}
+{% end %}
+
+{% begin json-contents %}
+{% if Data:EventFilter %}
+    {% filter wbevent-filter?name=Data:EventFilter&value=Data:Code&PassLocals=Data:PassLocals %}
+{% else %}
+    {% filter wbdisplay-dynamic?value=Data:Code %}
+{% endif %}
+{% end %}
+
+{% begin xml-contents %}
+{% if Data:EventFilter %}
+    {% filter wbevent-filter?name=Data:EventFilter&value=Data:Code&PassLocals=Data:PassLocals %}
+{% else %}
+    {% filter wbdisplay-dynamic?value=Data:Code %}
+{% endif %}
+{% end %}

@@ -1,0 +1,26 @@
+<?xml version="1.0" ?>
+<xmodule
+    xmlns="http://www.crowdfusion.com/schema/xmod"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://www.crowdfusion.com/schema/xmod http://www.crowdfusion.com/schema/crowdfusion-xmod-2.0.xsd">
+
+    <info xbuilder="EditCmsBuilder"/>
+
+    <fieldset>
+        <title>List Tool</title>
+        <group>
+            <textbox id="#sf-listtool-id" width="half">
+                <help>Only enter the list name/id from the Symbol Force system.</help>
+            </textbox>
+            <dropdown id="#sf-listtool-stencil" width="quarter">
+                <option value="default">Default</option>
+                <option value="tweets">Tweets</option>
+                <option value="quotes">Quotes</option>
+            </dropdown>
+            <textbox id="#sf-listtool-stencil-id" width="quarter">
+                <help>Only enter the stencil id if it's different from the stencils provided.</help>
+            </textbox>
+        </group>
+    </fieldset>
+
+</xmodule>

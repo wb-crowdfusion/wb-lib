@@ -1,0 +1,92 @@
+{% /* $Id: static-block.cft 1697 2011-08-12 23:31:44Z 12dnetworks $ */ %}
+{% /*
+
+This file allows for a generic pass through to a Presenter, which is a
+vanilla php class that will be autowired by our PresenterController.
+
+The Presenter variable should be passed in by the callee and be in the
+following format:
+
+    class name|service id::method
+    e.g.
+        {% set Presenter %}Ellen\Web\Presenter\SomePresenter::render{% end %}
+        {% template _presenter.cft?Presenter=Ellen\Web\Presenter\TeaserCollectionPresenter::render %}
+
+***
+
+Presenter Basics
+
+    * Is any old php class
+    * Will be autowired, treated as a singleton
+    * Any arguments on the method will also be autowired (say what, from where?)
+        * All of the template variables pass to this CFT will be passed through
+            to the presenter's method.  Passing, ?someVar=someVal means that
+            you can add render($someVar) to your class and will contain "someVal".
+
+            That's nifty but can be cumbersome with a lot of arguments.  You can
+            also add a ParamaterBag argument and when/if present that will be an
+            object containing all of the params.
+
+        * deviceView and design will be automatically populated and autowired if
+            not already present in template variables.
+
+<?php
+namespace Ellen\Web\Presenter\;
+
+use Symfony\Component\HttpFoundation\ParameterBag;
+
+class SomePresenter
+{
+    /**
+     * @param ParameterBag $parameters
+     * @return string
+     */
+    public function render(ParameterBag $parameters)
+    {
+        $someVar = $parameters->get('someVar');
+        return '$someVar=' . $someVar;
+    }
+}
+
+***
+
+required params:
+    Presenter: full qualified class name or service id::method
+
+optional params:
+    CacheDuration: the cache duration name, default, short, tiny, long, etc.
+    All others template variables (passed in by callee and present below will be
+    passed through directly to the presenter's method.
+
+*/ %}
+
+{% set DataSource %}presenter-render{% end %}
+{% set Presenter %}{% end %}
+{% set CacheDuration %}default{% end %}
+{% set CacheTime %}{% filter wbcache-get-duration?name=Data:CacheDuration %}{% end %}
+{% set DEFER %}1{% end %}
+
+
+{% begin contents %}
+{% filter display-raw?value=Data:PRESENTER_RESULT %}
+{% end %}
+
+{% begin rss-contents %}
+{% filter display-raw?value=Data:PRESENTER_RESULT %}
+{% end %}
+
+{% begin txt-contents %}
+{% filter display-raw?value=Data:PRESENTER_RESULT %}
+{% end %}
+
+{% begin js-contents %}
+{% filter display-raw?value=Data:PRESENTER_RESULT %}
+{% end %}
+
+{% begin json-contents %}
+{% filter display-raw?value=Data:PRESENTER_RESULT %}
+{% end %}
+
+{% begin xml-contents %}
+{% filter display-raw?value=Data:PRESENTER_RESULT %}
+{% end %}

@@ -1,0 +1,25 @@
+{% /* $Id: _omniture.cft 603 2011-07-20 04:10:33Z 12dnetworks $ */ %}
+{% /*
+AdSonar sponsored ads script
+
+*/ %}
+
+{% set PlacementId %}0{% end %}
+{% set Width %}610{% end %}
+{% set Height %}150{% end %}
+{% set CacheTime %}{% filter wbcache-get-duration %}{% end %}
+{% set DEFER %}1{% end %}
+
+
+{% begin contents %}
+
+<div id="adsonar-placement-%PlacementId%" class="adsonar-wrap adsonar-%Width%x%Height% clearfix">
+    <div class="adsonar-before"></div>
+    <div class="adsonar" style="width: %Width%px;">
+        <script type="text/javascript">adsonar_placementId=%PlacementId%;adsonar_pid={% filter wbadsonar-pid %};adsonar_ps={% filter wbadsonar-ps %};adsonar_zw=%Width%;adsonar_zh=%Height%;adsonar_jv="{% filter wbadsonar-jv %}";</script>
+        <script type="text/javascript" src="http://js.adsonar.com/js/adsonar.js"></script>
+    </div>
+    <div class="adsonar-after"></div>
+</div>
+
+{% end %}

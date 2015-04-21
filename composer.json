@@ -1,0 +1,19 @@
+{
+  "name": "wb-crowdfusion/wb-lib",
+  "type": "crowdfusion-plugin",
+  "description": "Provides various aspects, classes and templates for common functionality used on WB sites.",
+  "license": "Apache-2.0",
+  "repositories": [
+    {
+      "type": "composer",
+      "url": "http://satis.wbdevops.com/"
+    }
+  ],
+  "require": {
+    "php": ">=5.4",
+    "wb-crowdfusion/crowdfusion": "~3.2"
+  },
+  "require-dev": {
+    "phpunit/phpunit": "~4.3"
+  }
+}

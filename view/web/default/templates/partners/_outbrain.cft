@@ -1,0 +1,20 @@
+{% /* $Id: _outbrain.cft 2323 2011-06-09 19:14:44Z gbrown $ */ %}
+{% /*
+Outbrain js code.
+
+*/ %}
+
+{% set Permalink %}{% end %}
+{% set CacheTime %}{% filter wbcache-get-duration %}{% end %}
+{% set DEFER %}1{% end %}
+
+
+{% begin contents %}
+
+{% if Data:Permalink %}
+    <div class="OUTBRAIN" data-src="%Permalink%" data-widget-id="AR_3" data-ob-template="{% filter wboutbrain-template %}"></div>
+    <div class="OUTBRAIN" data-src="%Permalink%" data-widget-id="AR_4" data-ob-template="{% filter wboutbrain-template %}"></div>
+    <script type="text/javascript" async="async" src="//widgets.outbrain.com/outbrain.js"></script>
+{% endif %}
+
+{% end %}

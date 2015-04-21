@@ -1,0 +1,32 @@
+{% /* $Id: _google-analytics.cft 1603 2011-08-11 22:42:06Z 12dnetworks $ */ %}
+{% /*
+Google Analytics tracking code.
+
+UseRemarketing enables additional analytics.
+https://support.google.com/analytics/answer/2444872?hl=en&utm_id=ad
+
+*/ %}
+
+{% set UseRemarketing %}1{% end %}
+
+{% begin contents %}
+
+<script type="text/javascript">
+var _gaq = _gaq || [];
+_gaq.push(['_setAccount', '{% filter wbgoogle-analytics-account %}']);
+_gaq.push(['_trackPageview']);
+
+(function() {
+    var ga = document.createElement('script'); ga.type = 'text/javascript';
+    ga.async = true;
+    {% if Data:UseRemarketing == 1 %}
+        ga.src = ('https:' == document.location.protocol ? 'https://' : 'http://') + 'stats.g.doubleclick.net/dc.js';
+    {% else %}
+        ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+    {% endif %}
+    var s = document.getElementsByTagName('script')[0];
+    s.parentNode.insertBefore(ga, s);
+})();
+</script>
+
+{% end %}

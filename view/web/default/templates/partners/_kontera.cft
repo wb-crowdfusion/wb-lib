@@ -1,0 +1,25 @@
+{% /* $Id: _outbrain.cft 2323 2011-06-09 19:14:44Z gbrown $ */ %}
+{% /*
+Kontera js code.  linkifies text within the page so they show
+ads when you hover over them.
+
+note: this isn't supported over https
+
+*/ %}
+
+{% set CacheTime %}{% filter wbcache-get-duration %}{% end %}
+{% set DEFER %}1{% end %}
+
+
+{% begin contents %}
+
+<!-- start: Kontera ContentLink(TM) -->
+<script type="text/javascript">
+var dc_AdLinkColor = "{% filter wbkontera-ad-link-color %}";
+var dc_isBoldActive= "{% filter wbkontera-is-bold-active %}";
+var dc_PublisherID = {% filter wbkontera-publisher-id %};
+</script>
+<script type="text/javascript" src="http://kona.kontera.com/javascript/lib/KonaLibInline.js"></script>
+<!-- end: Kontera ContentLink(TM) -->
+
+{% end %}

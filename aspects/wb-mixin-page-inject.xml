@@ -1,0 +1,28 @@
+<?xml version='1.0'?>
+<aspect
+    xmlns="http://www.crowdfusion.com/schema/aspect"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://www.crowdfusion.com/schema/aspect http://www.crowdfusion.com/schema/crowdfusion-aspect-2.0.xsd">
+
+    <info>
+        <name>WB Mixin: Page Inject</name>
+        <description>Provides elements with fields for injecting content into various page locations like html head, header, footer.</description>
+        <elementmode>many</elementmode>
+    </info>
+
+    <meta_defs>
+        <meta id="#page-appendto-htmlhead">
+            <title>Append to HTML Head Tag</title>
+            <validation datatype="html" allowedtags="*" max="64K" />
+        </meta>
+        <meta id="#page-insertafter-header">
+            <title>After Site Header</title>
+            <validation datatype="html" allowedtags="*" max="64K" />
+        </meta>
+        <meta id="#page-insertafter-scripts">
+            <title>After Footer Scripts</title>
+            <validation datatype="html" allowedtags="*" max="64K" />
+        </meta>
+    </meta_defs>
+
+</aspect>
