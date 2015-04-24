@@ -1,19 +1,17 @@
 <?xml version='1.0'?>
 <plugin>
 
-    <info>
-        <title>WB - lib</title>
-        <provider>Warner Bros, Inc.</provider>
-        <description>Provides various aspects, classes and templates for common functionality used on WB sites.</description>
-        <priority>100</priority>
-        <version>1.1.9</version>
-        <license></license>
-        <dependencies></dependencies>
-        <cfversions>2.3.7</cfversions>
-    </info>
+  <info>
+    <title>WB - lib</title>
+    <provider>Warner Bros, Inc.</provider>
+    <description>Provides various aspects, classes and templates for common functionality used on WB sites.
+    </description>
+    <priority>100</priority>
+    <version>1.1.9</version>
+  </info>
 
-    <config>
-        <![CDATA[
+  <config>
+    <![CDATA[
 // todo: convert all of these to cftConstants
 // generic names for images
 /*
@@ -62,6 +60,6 @@ $properties['wbadsonar.pid'] = '';
 $properties['wbadsonar.ps'] = '-1';
 $properties['wbadsonar.jv'] = 'ads.adsonar.com';
         ]]>
-    </config>
+  </config>
 
 </plugin>
