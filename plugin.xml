@@ -6,7 +6,7 @@
         <provider>Warner Bros, Inc.</provider>
         <description>Provides various aspects, classes and templates for common functionality used on WB sites.</description>
         <priority>100</priority>
-        <version>1.1.8</version>
+        <version>1.1.9</version>
         <license></license>
         <dependencies></dependencies>
         <cfversions>2.3.7</cfversions>
@@ -14,6 +14,7 @@
 
     <config>
         <![CDATA[
+// todo: convert all of these to cftConstants
 // generic names for images
 /*
 $properties['wblib.image.names'] = array(
