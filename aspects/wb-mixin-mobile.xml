@@ -4,17 +4,17 @@
     xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
     xsi:schemaLocation="http://www.crowdfusion.com/schema/aspect http://www.crowdfusion.com/schema/crowdfusion-aspect-2.0.xsd">
 
-    <info>
-        <name>WB Mixin: Mobile</name>
-        <description>Given to elements that need variant content for mobile devices.</description>
-        <elementmode>many</elementmode>
-    </info>
+  <info>
+    <name>WB Mixin: Mobile</name>
+    <description>Given to elements that need variant content for mobile devices.</description>
+    <elementmode>many</elementmode>
+  </info>
 
-    <meta_defs>
-        <meta id="#mobile-contents">
-            <title>Mobile Contents (text version of contents)</title>
-            <validation datatype="html" allowedtags="*" max="64K" />
-        </meta>
-    </meta_defs>
+  <meta_defs>
+    <meta id="#mobile-contents">
+      <title>Mobile Contents (text version of contents)</title>
+      <validation datatype="html" allowedtags="*" max="64K"/>
+    </meta>
+  </meta_defs>
 
 </aspect>

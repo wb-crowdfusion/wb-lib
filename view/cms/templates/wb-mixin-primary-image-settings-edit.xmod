@@ -1,25 +1,25 @@
 <?xml version="1.0" ?>
 <xmodule
-        xmlns="http://www.crowdfusion.com/schema/xmod"
-        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-        xsi:schemaLocation="http://www.crowdfusion.com/schema/xmod http://www.crowdfusion.com/schema/crowdfusion-xmod-2.0.xsd">
+    xmlns="http://www.crowdfusion.com/schema/xmod"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://www.crowdfusion.com/schema/xmod http://www.crowdfusion.com/schema/crowdfusion-xmod-2.0.xsd">
 
-    <info xbuilder="EditCmsBuilder"/>
+  <info xbuilder="EditCmsBuilder"/>
 
-    <fieldset>
-        <title>Primary Image Settings</title>
-        <group>
-            <template src="_wb-primary-image-embed-options.cft?CurrentEmbedOption=Data:#embed-primary-image"/>
-        </group>
-        <group>
-            <textbox id="#primary-image-destination" width="half"/>
-            <textbox id="#primary-image-destination-target" width="quarter"/>
-        </group>
-        <group>
-            <textbox id="#primary-image-caption" width="half"/>
-            <textbox id="#primary-image-overlay" width="quarter"/>
-            <textbox id="#primary-image-overlay-class" width="quarter"/>
-        </group>
-    </fieldset>
+  <fieldset>
+    <title>Primary Image Settings</title>
+    <group>
+      <template src="_wb-primary-image-embed-options.cft?CurrentEmbedOption=Data:#embed-primary-image"/>
+    </group>
+    <group>
+      <textbox id="#primary-image-destination" width="half"/>
+      <textbox id="#primary-image-destination-target" width="quarter"/>
+    </group>
+    <group>
+      <textbox id="#primary-image-caption" width="half"/>
+      <textbox id="#primary-image-overlay" width="quarter"/>
+      <textbox id="#primary-image-overlay-class" width="quarter"/>
+    </group>
+  </fieldset>
 
 </xmodule>

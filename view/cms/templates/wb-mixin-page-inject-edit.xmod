@@ -4,15 +4,15 @@
     xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
     xsi:schemaLocation="http://www.crowdfusion.com/schema/xmod http://www.crowdfusion.com/schema/crowdfusion-xmod-2.0.xsd">
 
-    <info xbuilder="EditCmsBuilder"/>
+  <info xbuilder="EditCmsBuilder"/>
 
-    <fieldset>
-        <title>Custom Page Markup</title>
-        <group>
-            <textarea id="#page-appendto-htmlhead" width="full" rows="5"/>
-            <textarea id="#page-insertafter-header" width="full" rows="5"/>
-            <textarea id="#page-insertafter-scripts" width="full" rows="5"/>
-        </group>
-    </fieldset>
+  <fieldset>
+    <title>Custom Page Markup</title>
+    <group>
+      <textarea id="#page-appendto-htmlhead" width="full" rows="5"/>
+      <textarea id="#page-insertafter-header" width="full" rows="5"/>
+      <textarea id="#page-insertafter-scripts" width="full" rows="5"/>
+    </group>
+  </fieldset>
 
 </xmodule>

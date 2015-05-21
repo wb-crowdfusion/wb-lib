@@ -5,16 +5,18 @@
     xsi:schemaLocation="http://www.crowdfusion.com/schema/aspect http://www.crowdfusion.com/schema/crowdfusion-aspect-2.0.xsd">
 
   <info>
-    <name>WB Mixin: Contents</name>
-    <description>Given to elements that typically exist in a list, containing contents, continued contents, and an
-      excerpt
-    </description>
+    <name>WB Mixin: Contents MD</name>
+    <description>Given to elements that typically exist in a list, containing contents, continued contents, and an excerpt</description>
     <elementmode>many</elementmode>
   </info>
 
   <meta_defs>
     <meta id="#pre-contents">
       <title>Pre Contents (Renders before Primary Image Embed, Basic HTML Only)</title>
+      <validation datatype="html" allowedtags="*" max="64K" />
+    </meta>
+    <meta id="#contents-md">
+      <title>Contents</title>
       <validation datatype="html" allowedtags="*" max="64K"/>
     </meta>
     <meta id="#contents">
@@ -27,19 +29,19 @@
     </meta>
     <meta id="#excerpt">
       <title>Excerpt</title>
-      <validation datatype="html" allowedtags="*" max="64K"/>
+      <validation datatype="html" allowedtags="*" max="64K" />
     </meta>
     <meta id="#short-title">
       <title>Short Title</title>
-      <validation datatype="string" max="120"/>
+      <validation datatype="string" max="120" />
     </meta>
     <meta id="#tiny-title">
       <title>Tiny Title</title>
-      <validation datatype="string" max="120"/>
+      <validation datatype="string" max="120" />
     </meta>
     <meta id="#read-more-link-text">
       <title>Read More Link Text</title>
-      <validation datatype="string" max="64"/>
+      <validation datatype="string" max="64" />
     </meta>
   </meta_defs>
 

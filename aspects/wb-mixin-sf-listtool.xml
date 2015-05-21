@@ -4,26 +4,26 @@
     xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
     xsi:schemaLocation="http://www.crowdfusion.com/schema/aspect http://www.crowdfusion.com/schema/crowdfusion-aspect-2.0.xsd">
 
-    <info>
-        <name>WB Mixin: SF List Tool</name>
-        <description>Given to elements that have one associated Symbol Force List Tool item.</description>
-        <elementmode>many</elementmode>
-    </info>
+  <info>
+    <name>WB Mixin: SF List Tool</name>
+    <description>Given to elements that have one associated Symbol Force List Tool item.</description>
+    <elementmode>many</elementmode>
+  </info>
 
-    <meta_defs>
-        <meta id="#sf-listtool-id">
-            <title>List Tool Id</title>
-            <validation datatype="string" max="100" />
-        </meta>
-        <meta id="#sf-listtool-stencil">
-            <title>List Tool Stencil</title>
-            <validation datatype="string" max="20"/>
-            <default>default</default>
-        </meta>
-        <meta id="#sf-listtool-stencil-id">
-            <title>List Tool Stencil Id (optional)</title>
-            <validation datatype="string" max="100" />
-        </meta>
-    </meta_defs>
+  <meta_defs>
+    <meta id="#sf-listtool-id">
+      <title>List Tool Id</title>
+      <validation datatype="string" max="100"/>
+    </meta>
+    <meta id="#sf-listtool-stencil">
+      <title>List Tool Stencil</title>
+      <validation datatype="string" max="20"/>
+      <default>default</default>
+    </meta>
+    <meta id="#sf-listtool-stencil-id">
+      <title>List Tool Stencil Id (optional)</title>
+      <validation datatype="string" max="100"/>
+    </meta>
+  </meta_defs>
 
 </aspect>

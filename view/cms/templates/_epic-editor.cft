@@ -1,0 +1,76 @@
+{% /*
+
+params:
+MetaName (field to be EpicEditor'd and populated with data)
+MetaFallback (field to populate data from if original meta field is empty)
+
+*/ %}
+
+{% set RawMeta %}{% filter display-raw?value=Data:#%MetaName% %}{% end %}
+{% set RawFallback %}{% filter display-raw?value=Data:#%MetaFallback% %}{% end %}
+{% set FieldData %}{% if Data:RawMeta %}%RawMeta%{% else %}%RawFallback%{% endif %}{% end %}
+
+{% begin contents %}
+
+{% asset js?src=/js/epiceditor/0.2.2/epiceditor.min.js %}
+
+<li class="input-full-width field">
+  <label for="%MetaName%-container">Contents Markdown (<a href="http://daringfireball.net/projects/markdown/syntax" target="_blank">syntax</a>)</label>
+  <div id="%MetaName%-container"></div>
+</li>
+<li class="input-full-width field">
+  <label for="%MetaName%">Contents</label>
+  <textarea id="%MetaName%" name="#%MetaName%" rows="2">%FieldData%</textarea>
+</li>
+
+<script>
+$(document).ready(function () {
+  var opts = {
+    container: '%MetaName%-container',
+    textarea: '%MetaName%',
+    clientSideStorage: true,
+    localStorageName: 'epiceditor',
+    useNativeFullscreen: true,
+    file: {
+      name: 'epiceditor-contents',
+      defaultContent: '',
+      autoSave: 100
+    },
+    theme: {
+      base: '{% asset version?src=js/epiceditor/0.2.2/css/epiceditor.css %}',
+      preview: '{% asset version?src=js/epiceditor/0.2.2/css/github.css %}',
+      editor: '{% asset version?src=js/epiceditor/0.2.2/css/epic-dark.css %}'
+    },
+    button: {
+      preview: true,
+      fullscreen: true,
+      bar: 'show'
+    },
+    focusOnLoad: false,
+    shortcut: {
+      modifier: 18,
+      preview: 80
+    },
+    string: {
+      togglePreview: 'Toggle Preview Mode',
+      toggleEdit: 'Toggle Edit Mode'
+    },
+    autogrow: false
+  };
+
+  var editor = new EpicEditor(opts).load();
+
+  $('#%MetaName%').closest('li').hide();
+
+  editor.on('update', function () {
+    $('.button-save, .button-delete').show();
+  });
+
+  $('.button-save, .button-delete, .button-cancel').click(function () {
+    editor.remove('epiceditor-contents');
+    editor.unload();
+  });
+});
+</script>
+
+{% end %}
