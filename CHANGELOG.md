@@ -1,7 +1,7 @@
 # CHANGELOG
 
 
-## v1.2.9
+## v1.1.10
 * issue #4: Add support for Markdown in article post contents. Add EpicEditor.
 
 
