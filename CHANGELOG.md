@@ -1,6 +1,10 @@
 # CHANGELOG
 
 
+## v1.2.9
+* issue #4: Add support for Markdown in article post contents. Add EpicEditor.
+
+
 ## v1.1.9
 * issue #2: use function callbacks instead of /e regex modifier.  part of php5.6 upgrade fixes.
 * issue #1: Move psr classes from `vendors` to `src` and use composer to load them.
