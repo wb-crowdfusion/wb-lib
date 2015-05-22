@@ -12,7 +12,7 @@ MetaFallback (field to populate data from if original meta field is empty)
 
 {% begin contents %}
 
-{% asset js?src=/js/epiceditor/0.2.2/epiceditor.min.js %}
+{% asset js?src=/js/epiceditor/0.2.2/epiceditor.js&min=true %}
 
 <li class="input-full-width field">
   <label for="%MetaName%-container">Contents Markdown (<a href="http://daringfireball.net/projects/markdown/syntax" target="_blank">syntax</a>)</label>
