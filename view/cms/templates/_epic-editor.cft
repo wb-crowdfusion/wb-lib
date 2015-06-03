@@ -15,11 +15,11 @@ MetaFallback (field to populate data from if original meta field is empty)
 {% asset js?src=/js/epiceditor/0.2.2/epiceditor.js&min=true %}
 
 <li class="input-full-width field">
-  <label for="%MetaName%-container">Contents Markdown (<a href="http://daringfireball.net/projects/markdown/syntax" target="_blank">syntax</a>)</label>
+  <label for="%MetaName%-container">{% filter slugs-unsluggify?value=%MetaName% %} Markdown (<a href="http://daringfireball.net/projects/markdown/syntax" target="_blank">syntax</a>)</label>
   <div id="%MetaName%-container"></div>
 </li>
 <li class="input-full-width field">
-  <label for="%MetaName%">Contents</label>
+  <label for="%MetaName%">{% filter slugs-unsluggify?value=%MetaName% %}</label>
   <textarea id="%MetaName%" name="#%MetaName%" rows="2">%FieldData%</textarea>
 </li>
 

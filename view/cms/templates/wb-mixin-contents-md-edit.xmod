@@ -14,9 +14,6 @@
       <textbox id="#read-more-link-text" width="quarter"/>
     </group>
     <group>
-      <textarea id="#pre-contents" width="full" rows="4"/>
-    </group>
-    <group>
       <template src="_epic-editor.cft?MetaName=contents-md&amp;MetaFallback=contents&amp;inherit=true"/>
     </group>
     <group>
