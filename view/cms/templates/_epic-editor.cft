@@ -62,7 +62,7 @@ $(document).ready(function () {
   });
 
   $('#nav-add-article a, .button-save, .button-delete, .button-cancel').click(function () {
-    editor.remove('epiceditor-contents');
+    editor.remove('%MetaName%-container');
   });
 });
 </script>
