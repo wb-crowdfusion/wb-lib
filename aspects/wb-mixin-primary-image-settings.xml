@@ -1,41 +1,40 @@
 <?xml version='1.0'?>
 <aspect
-        xmlns="http://www.crowdfusion.com/schema/aspect"
-        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-        xsi:schemaLocation="http://www.crowdfusion.com/schema/aspect http://www.crowdfusion.com/schema/crowdfusion-aspect-2.0.xsd">
+    xmlns="http://www.crowdfusion.com/schema/aspect"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://www.crowdfusion.com/schema/aspect http://www.crowdfusion.com/schema/crowdfusion-aspect-2.0.xsd">
 
-    <info>
-        <name>WB Mixin: Primary Image Settings</name>
-        <description>Defines settings for elements using a primary image.</description>
-        <elementmode>many</elementmode>
-    </info>
+  <info>
+    <name>WB Mixin: Primary Image Settings</name>
+    <description>Defines settings for elements using a primary image.</description>
+    <elementmode>many</elementmode>
+  </info>
 
-    <meta_defs>
-        <meta id="#embed-primary-image">
-            <title>Auto Embed Primary Image</title>
-            <validation datatype="string" max="30"/>
-            <default>portrait</default>
-        </meta>
-        <meta id="#primary-image-destination">
-            <title>Primary Image Destination URL</title>
-            <validation datatype="string" max="255"/>
-        </meta>
-        <meta id="#primary-image-destination-target">
-            <title>Primary Image Destination Target</title>
-            <validation datatype="string" max="20" match="^[A-Za-z0-9_]+$"/>
-        </meta>
-        <meta id="#primary-image-caption">
-            <title>Primary Image Caption</title>
-            <validation datatype="html" allowedtags="*" max="255"/>
-        </meta>
-        <meta id="#primary-image-overlay">
-            <title>Primary Image Overlay Text</title>
-            <validation datatype="string" max="100"/>
-        </meta>
-        <meta id="#primary-image-overlay-class">
-            <title>Primary Image Overlay CSS Class</title>
-            <validation datatype="string" max="100"/>
-        </meta>
-    </meta_defs>
+  <meta_defs>
+    <meta id="#embed-primary-image">
+      <title>Auto Embed Primary Image</title>
+      <validation datatype="string" max="30"/>
+    </meta>
+    <meta id="#primary-image-destination">
+      <title>Primary Image Destination URL</title>
+      <validation datatype="string" max="255"/>
+    </meta>
+    <meta id="#primary-image-destination-target">
+      <title>Primary Image Destination Target</title>
+      <validation datatype="string" max="20" match="^[A-Za-z0-9_]+$"/>
+    </meta>
+    <meta id="#primary-image-caption">
+      <title>Primary Image Caption</title>
+      <validation datatype="html" allowedtags="*" max="255"/>
+    </meta>
+    <meta id="#primary-image-overlay">
+      <title>Primary Image Overlay Text</title>
+      <validation datatype="string" max="100"/>
+    </meta>
+    <meta id="#primary-image-overlay-class">
+      <title>Primary Image Overlay CSS Class</title>
+      <validation datatype="string" max="100"/>
+    </meta>
+  </meta_defs>
 
 </aspect>

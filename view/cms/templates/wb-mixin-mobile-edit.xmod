@@ -4,13 +4,13 @@
     xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
     xsi:schemaLocation="http://www.crowdfusion.com/schema/xmod http://www.crowdfusion.com/schema/crowdfusion-xmod-2.0.xsd">
 
-    <info xbuilder="EditCmsBuilder"/>
+  <info xbuilder="EditCmsBuilder"/>
 
-    <fieldset>
-        <title>Mobile</title>
-        <group>
-            <textarea id="#mobile-contents" width="full" rows="5"/>
-        </group>
-    </fieldset>
+  <fieldset>
+    <title>Mobile</title>
+    <group>
+      <textarea id="#mobile-contents" width="full" rows="5"/>
+    </group>
+  </fieldset>
 
 </xmodule>

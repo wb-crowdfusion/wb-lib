@@ -4,17 +4,17 @@
     xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
     xsi:schemaLocation="http://www.crowdfusion.com/schema/aspect http://www.crowdfusion.com/schema/crowdfusion-aspect-2.0.xsd">
 
-    <info>
-        <name>WB Mixin: Survey Monkey Survey</name>
-        <description>Given to elements that have one associated Survey Monkey item.</description>
-        <elementmode>many</elementmode>
-    </info>
+  <info>
+    <name>WB Mixin: Survey Monkey Survey</name>
+    <description>Given to elements that have one associated Survey Monkey item.</description>
+    <elementmode>many</elementmode>
+  </info>
 
-    <meta_defs>
-        <meta id="#sm-survey-id">
-            <title>Survey Id</title>
-            <validation datatype="string" max="50" />
-        </meta>
-    </meta_defs>
+  <meta_defs>
+    <meta id="#sm-survey-id">
+      <title>Survey Id</title>
+      <validation datatype="string" max="50"/>
+    </meta>
+  </meta_defs>
 
 </aspect>

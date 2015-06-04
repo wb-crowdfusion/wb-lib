@@ -4,28 +4,29 @@
     xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
     xsi:schemaLocation="http://www.crowdfusion.com/schema/aspect http://www.crowdfusion.com/schema/crowdfusion-aspect-2.0.xsd">
 
-    <info>
-        <name>WB Mixin: Visibility</name>
-        <description>Provides elements with fields for controlling when it is visible.  Up to the templates to enforce.</description>
-        <elementmode>many</elementmode>
-    </info>
+  <info>
+    <name>WB Mixin: Visibility</name>
+    <description>Provides elements with fields for controlling when it is visible. Up to the templates to enforce.
+    </description>
+    <elementmode>many</elementmode>
+  </info>
 
-    <meta_defs>
-        <meta id="#allow-in-listings">
-            <title>Allow in Listings</title>
-            <validation datatype="boolean"/>
-            <default>true</default>
-        </meta>
-        <meta id="#allow-on-homepage">
-            <title>Allow on Homepage</title>
-            <validation datatype="boolean"/>
-            <default>true</default>
-        </meta>
-        <meta id="#allow-in-mobile">
-            <title>Allow in Mobile</title>
-            <validation datatype="boolean"/>
-            <default>true</default>
-        </meta>
-    </meta_defs>
+  <meta_defs>
+    <meta id="#allow-in-listings">
+      <title>Allow in Listings</title>
+      <validation datatype="boolean"/>
+      <default>true</default>
+    </meta>
+    <meta id="#allow-on-homepage">
+      <title>Allow on Homepage</title>
+      <validation datatype="boolean"/>
+      <default>true</default>
+    </meta>
+    <meta id="#allow-in-mobile">
+      <title>Allow in Mobile</title>
+      <validation datatype="boolean"/>
+      <default>true</default>
+    </meta>
+  </meta_defs>
 
 </aspect>

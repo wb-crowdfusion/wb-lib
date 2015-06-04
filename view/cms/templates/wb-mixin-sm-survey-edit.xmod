@@ -4,15 +4,15 @@
     xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
     xsi:schemaLocation="http://www.crowdfusion.com/schema/xmod http://www.crowdfusion.com/schema/crowdfusion-xmod-2.0.xsd">
 
-    <info xbuilder="EditCmsBuilder"/>
+  <info xbuilder="EditCmsBuilder"/>
 
-    <fieldset>
-        <title>Survey Monkey</title>
-        <group>
-            <textbox id="#sm-survey-id" width="half">
-                <help>Only enter the id of the survey from the Survey Monkey system.</help>
-            </textbox>
-        </group>
-    </fieldset>
+  <fieldset>
+    <title>Survey Monkey</title>
+    <group>
+      <textbox id="#sm-survey-id" width="half">
+        <help>Only enter the id of the survey from the Survey Monkey system.</help>
+      </textbox>
+    </group>
+  </fieldset>
 
 </xmodule>

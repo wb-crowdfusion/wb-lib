@@ -1,0 +1,24 @@
+<?xml version="1.0" ?>
+<xmodule
+    xmlns="http://www.crowdfusion.com/schema/xmod"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://www.crowdfusion.com/schema/xmod http://www.crowdfusion.com/schema/crowdfusion-xmod-2.0.xsd">
+
+  <info xbuilder="EditCmsBuilder"/>
+
+  <fieldset>
+    <title>Contents</title>
+    <group>
+      <textbox id="#short-title" width="half"/>
+      <textbox id="#tiny-title" width="quarter"/>
+      <textbox id="#read-more-link-text" width="quarter"/>
+    </group>
+    <group>
+      <template src="_epic-editor.cft?MetaName=contents-md&amp;MetaFallback=contents&amp;inherit=true"/>
+    </group>
+    <group>
+      <textarea id="#excerpt" width="full" rows="2"/>
+    </group>
+  </fieldset>
+
+</xmodule>

@@ -12,24 +12,24 @@ Renders the drop down options for the primary image embeds.
 
 {% begin header %}
 <li class="input-half-width field">
-    <label for="%MetaID%">%MetaTitle%</label>
-    <div>
-        <select id="%MetaID%" name="#%MetaID%">
-            {% if Data:CurrentEmbedOption && Data:CurrentEmbedOption !eq 'off' %}
-                {% set IsDeprecated %}{% filter wbimage-is-deprecated?name=Data:CurrentEmbedOption %}{% endset %}
-                <option value='%CurrentEmbedOption%' selected>{% filter wbimage-get-title?name=Data:CurrentEmbedOption %}{% if Data:IsDeprecated %} - Deprecated, DO NOT USE{% endif %}</option>
-                <option value='%CurrentEmbedOption%'>----------</option>
-            {% endif %}
-{% end %}
-
-{% begin contents %}
-    {% if !Data:EmbedOptionDeprecated %}
-        <option value="%EmbedOptionSlug%" {% if Data:CurrentEmbedOption eq '%EmbedOptionSlug%' %}selected="selected"{% endif %}>%EmbedOptionTitle%{% if Data:EmbedOptionSize %} (%EmbedOptionSize%){% endif %}</option>
+  <label for="%MetaID%">%MetaTitle%</label>
+  <div>
+    <select id="%MetaID%" name="#%MetaID%">
+    {% if Data:CurrentEmbedOption && Data:CurrentEmbedOption !eq 'off' %}
+      {% set IsDeprecated %}{% filter wbimage-is-deprecated?name=Data:CurrentEmbedOption %}{% endset %}
+      <option value='%CurrentEmbedOption%' selected>{% filter wbimage-get-title?name=Data:CurrentEmbedOption %}{% if Data:IsDeprecated %} - Deprecated, DO NOT USE{% endif %}</option>
+      <option value='%CurrentEmbedOption%'>----------</option>
     {% endif %}
 {% end %}
 
+{% begin contents %}
+  {% if !Data:EmbedOptionDeprecated %}
+      <option value="%EmbedOptionSlug%" {% if Data:CurrentEmbedOption eq '%EmbedOptionSlug%' %}selected="selected"{% endif %}>%EmbedOptionTitle%{% if Data:EmbedOptionSize %} (%EmbedOptionSize%){% endif %}</option>
+  {% endif %}
+{% end %}
+
 {% begin footer %}
-        </select>
-    </div>
+    </select>
+  </div>
 </li>
 {% end %}

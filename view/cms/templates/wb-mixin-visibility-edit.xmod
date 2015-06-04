@@ -4,15 +4,15 @@
     xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
     xsi:schemaLocation="http://www.crowdfusion.com/schema/xmod http://www.crowdfusion.com/schema/crowdfusion-xmod-2.0.xsd">
 
-    <info xbuilder="EditCmsBuilder"/>
+  <info xbuilder="EditCmsBuilder"/>
 
-    <fieldset>
-        <title>Visibility</title>
-        <group>
-            <checkbox id="#allow-in-listings" width="quarter"/>
-            <checkbox id="#allow-on-homepage" width="quarter"/>
-            <checkbox id="#allow-in-mobile"   width="quarter"/>
-        </group>
-    </fieldset>
+  <fieldset>
+    <title>Visibility</title>
+    <group>
+      <checkbox id="#allow-in-listings" width="quarter"/>
+      <checkbox id="#allow-on-homepage" width="quarter"/>
+      <checkbox id="#allow-in-mobile" width="quarter"/>
+    </group>
+  </fieldset>
 
 </xmodule>
