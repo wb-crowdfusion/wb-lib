@@ -31,11 +31,6 @@ $(document).ready(function () {
     clientSideStorage: true,
     localStorageName: 'epiceditor',
     useNativeFullscreen: true,
-    file: {
-      name: 'epiceditor-contents',
-      defaultContent: '',
-      autoSave: 100
-    },
     theme: {
       base: '{% asset version?src=js/epiceditor/0.2.2/css/epiceditor.css %}',
       preview: '{% asset version?src=js/epiceditor/0.2.2/css/github.css %}',
