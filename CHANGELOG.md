@@ -1,6 +1,10 @@
 # CHANGELOG
 
 
+## v1.1.11
+* issue #7: Added `primary-image-credit` to `wb-mixin-primary-image-settings` aspect.
+
+
 ## v1.1.10
 * issue #4: Add support for Markdown in article post contents. Add EpicEditor.
 

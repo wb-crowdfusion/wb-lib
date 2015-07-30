@@ -35,6 +35,10 @@
       <title>Primary Image Overlay CSS Class</title>
       <validation datatype="string" max="100"/>
     </meta>
+    <meta id="#primary-image-credit">
+      <title>Primary Image Credit</title>
+      <validation datatype="string" max="100"/>
+    </meta>
   </meta_defs>
 
 </aspect>

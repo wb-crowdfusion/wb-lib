@@ -16,6 +16,7 @@ params:
     IsOnSingle    : 1 or 0,  defaults to 1.
     ShowOverlay   : 1 or 0.  toggles output of #primary-image-overlay
     ShowCaption   : 1 or 0.  toggles output of #primary-image-caption
+    ShowCredit    : 1 or 0.  toggles output of #primary-image-credit
     SetWidth      : 1 or 0.  adds width="X" to image tag
     SetHeight     : 1 or 0.  adds height="X" to image tag
 
@@ -28,6 +29,7 @@ params:
 {% set IsOnSingle %}1{% end %}
 {% set ShowOverlay %}1{% end %}
 {% set ShowCaption %}1{% end %}
+{% set ShowCredit %}0{% end %}
 {% set SetWidth %}1{% end %}
 {% set SetHeight %}0{% end %}
 
@@ -52,6 +54,9 @@ params:
     </div>
     {% if Data:ShowCaption && Data:#primary-image-caption %}
         <div class="caption">{% filter display?value=Data:#primary-image-caption %}</div>
+    {% endif %}
+    {% if Data:ShowCredit && Data:#primary-image-credit %}
+        <div class="credit">{% filter display?value=Data:#primary-image-credit %}</div>
     {% endif %}
 </div>
 {% else %}
