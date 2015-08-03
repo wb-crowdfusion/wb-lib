@@ -4,15 +4,14 @@ Parse.ly tracking file
 
 */ %}
 
-{% set CfgSite %}{% end %}
-{% set CacheTime %}{% filter wbcache-get-duration?name=verylong %}{% end %}
+{% set cfg_site %}%PARSELY_SITE%{% end %}
 
 
 {% begin contents %}
 
 <!-- START Parse.ly Include: Standard -->
 <div id="parsely-root" style="display: none">
-<div id="parsely-cfg" data-parsely-site="%CfgSite%"></div>
+<div id="parsely-cfg" data-parsely-site="%cfg_site%"></div>
 </div>
 <script>
 (function(s, p, d) {

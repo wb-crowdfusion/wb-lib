@@ -1,0 +1,45 @@
+{% /* $Id: _footer-scripts.cft 2786 2011-12-16 21:24:20Z 12dnetworks $ */ %}
+{% /*
+*/ %}
+
+{% set load_js %}1{% end %}
+{% set app_id %}%FACEBOOK_APP_ID%{% end %}
+{% set status %}true{% end %}
+{% set cookie %}true{% end %}
+{% set xfbml %}true{% end %}
+{% set oauth %}true{% end %}
+{% set sdk_version %}v2.4{% end %}
+
+
+{% begin contents %}
+
+<script>
+window.fbAsyncInit = function() {
+  FB.init({
+    appId: '%app_id%',
+    status: %status%,
+    cookie: %cookie%,
+    xfbml: %xfbml%,
+    oauth: %oauth%,
+    version: '%sdk_version%'
+  });
+
+  if (typeof jQuery != 'undefined') {
+    jQuery(document).trigger('FB_READY', FB);
+  }
+};
+</script>
+{% if Data:load_js %}
+<div id="fb-root"></div>
+<script>
+(function(d, s, id){
+  var js, fjs = d.getElementsByTagName(s)[0];
+  if (d.getElementById(id)) {return;}
+  js = d.createElement(s); js.id = id;
+  js.src = "//connect.facebook.net/en_US/sdk.js";
+  fjs.parentNode.insertBefore(js, fjs);
+}(document, 'script', 'facebook-jssdk'));
+</script>
+{% endif %}
+
+{% end %}

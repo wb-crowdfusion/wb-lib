@@ -7,19 +7,15 @@ note: this isn't supported over https
 
 */ %}
 
-{% set CacheTime %}{% filter wbcache-get-duration %}{% end %}
-{% set DEFER %}1{% end %}
-
-
 {% begin contents %}
 
 <!-- start: Kontera ContentLink(TM) -->
-<script type="text/javascript">
-var dc_AdLinkColor = "{% filter wbkontera-ad-link-color %}";
-var dc_isBoldActive= "{% filter wbkontera-is-bold-active %}";
-var dc_PublisherID = {% filter wbkontera-publisher-id %};
+<script>
+var dc_AdLinkColor = '%KONTERA_AD_LINK_COLOR%';
+var dc_isBoldActive= '%KONTERA_IS_BOLD_ACTIVE%';
+var dc_PublisherID = '%KONTERA_PUBLISHER_ID%';
 </script>
-<script type="text/javascript" src="http://kona.kontera.com/javascript/lib/KonaLibInline.js"></script>
+<script src="http://kona.kontera.com/javascript/lib/KonaLibInline.js"></script>
 <!-- end: Kontera ContentLink(TM) -->
 
 {% end %}

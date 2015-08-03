@@ -29,7 +29,7 @@ params:
 {% set IsOnSingle %}1{% end %}
 {% set ShowOverlay %}1{% end %}
 {% set ShowCaption %}1{% end %}
-{% set ShowCredit %}0{% end %}
+{% set ShowCredit %}1{% end %}
 {% set SetWidth %}1{% end %}
 {% set SetHeight %}0{% end %}
 
@@ -46,21 +46,21 @@ params:
 
 {% if Data:ImageURL && 'Data:' !instr Data:ImageURL %}
 <div class="%WrapperDiv% %WrapperDiv%-%FinalImageName%">
-    <div class="image">
-        {% if Data:HasLink %}<a href="%ImageLink%"{% filter display?value=Data:LinkTarget %}>{% endif %}<img src="%ImageURL%"{% if Data:SetWidth && Data:ImageWidth %} class="img-responsive" width="%ImageWidth%"{% endif %}{% if Data:SetHeight && Data:ImageHeight %} height="%ImageHeight%"{% endif %} alt="%Title%" border="0" />{% if Data:HasLink %}</a>{% endif %}
-        {% if Data:ShowOverlay && Data:#primary-image-overlay %}
-            <div class="overlay overlay-{% filter slugs-create?value=Data:#primary-image-overlay %} %#primary-image-overlay-class%"><span>{% if Data:HasLink %}<a href="%ImageLink%"{% filter display?value=Data:LinkTarget %}>{% endif %}%#primary-image-overlay%{% if Data:HasLink %}</a>{% endif %}</span></div>
-        {% endif %}
-    </div>
-    {% if Data:ShowCaption && Data:#primary-image-caption %}
-        <div class="caption">{% filter display?value=Data:#primary-image-caption %}</div>
+  <div class="image">
+    {% if Data:HasLink %}<a href="%ImageLink%"{% filter display?value=Data:LinkTarget %}>{% endif %}<img src="%ImageURL%"{% if Data:SetWidth && Data:ImageWidth %} class="img-responsive" width="%ImageWidth%"{% endif %}{% if Data:SetHeight && Data:ImageHeight %} height="%ImageHeight%"{% endif %} alt="%Title%" border="0" />{% if Data:HasLink %}</a>{% endif %}
+    {% if Data:ShowOverlay && Data:#primary-image-overlay %}
+      <div class="overlay overlay-{% filter slugs-create?value=Data:#primary-image-overlay %} %#primary-image-overlay-class%"><span>{% if Data:HasLink %}<a href="%ImageLink%"{% filter display?value=Data:LinkTarget %}>{% endif %}%#primary-image-overlay%{% if Data:HasLink %}</a>{% endif %}</span></div>
     {% endif %}
     {% if Data:ShowCredit && Data:#primary-image-credit %}
-        <div class="credit">{% filter display?value=Data:#primary-image-credit %}</div>
+      <div class="credit">%#primary-image-credit%</div>
     {% endif %}
+  </div>
+  {% if Data:ShowCaption && Data:#primary-image-caption %}
+    <div class="caption">{% filter display?value=Data:#primary-image-caption %}</div>
+  {% endif %}
 </div>
 {% else %}
-    <!-- No primary-image or override for [%NodeRef%] with size [%FinalImageName%:%ImageSize%] -->
+  <!-- No primary-image or override for [%NodeRef%] with size [%FinalImageName%:%ImageSize%] -->
 {% endif %}
 
 {% end %}

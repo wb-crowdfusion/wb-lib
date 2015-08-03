@@ -14,12 +14,18 @@ AdSonar sponsored ads script
 {% begin contents %}
 
 <div id="adsonar-placement-%PlacementId%" class="adsonar-wrap adsonar-%Width%x%Height% clearfix">
-    <div class="adsonar-before"></div>
-    <div class="adsonar" style="width: %Width%px;">
-        <script type="text/javascript">adsonar_placementId=%PlacementId%;adsonar_pid={% filter wbadsonar-pid %};adsonar_ps={% filter wbadsonar-ps %};adsonar_zw=%Width%;adsonar_zh=%Height%;adsonar_jv="{% filter wbadsonar-jv %}";</script>
-        <script type="text/javascript" src="http://js.adsonar.com/js/adsonar.js"></script>
-    </div>
-    <div class="adsonar-after"></div>
+  <div class="adsonar-before"></div>
+  <div id="adsonar-placement-%PlacementId%-%Width%x%Height%" class="adsonar" style="width: %Width%px;"></div>
+  <div class="adsonar-after"></div>
 </div>
+<script>
+var wbq = wbq || [];
+wbq.push(function adsonarAd_%PlacementId%_%Width%x%Height%() {
+  require(['adsonarads'], function() {
+    var ad = new AdsonarAd(%PlacementId%, %Width%, %Height%);
+    ad.writeTo('adsonar-placement-%PlacementId%-%Width%x%Height%');
+  });
+});
+</script>
 
 {% end %}

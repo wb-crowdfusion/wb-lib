@@ -7,7 +7,7 @@
     <description>Provides various aspects, classes and templates for common functionality used on WB sites.
     </description>
     <priority>100</priority>
-    <version>1.1.11</version>
+    <version>1.2.0</version>
   </info>
 
   <config>
@@ -35,30 +35,30 @@ $properties['wbcache.durations'] = array(
 );
 
 // kontera (contextual ad provider - linkifies text)
-$properties['wbkontera.publisherId'] = '';
-$properties['wbkontera.adLinkColor'] = 'blue';
-$properties['wbkontera.isBoldActive'] = 'no';
+$properties['cft.constants']['KONTERA_PUBLISHER_ID'] = '';
+$properties['cft.constants']['KONTERA_AD_LINK_COLOR'] = 'blue';
+$properties['cft.constants']['KONTERA_IS_BOLD_ACTIVE'] = 'no';
 
 // tynt (copy paste tracker)
-$properties['wbtynt.id'] = '';
+$properties['cft.constants']['TYNT_ID'] = '';
 
 // google analytics
-$properties['wbgoogle.analytics.account'] = '';
+$properties['cft.constants']['GOOGLE_ANALYTICS_ACCOUNT'] = '';
 
 // chartbeat (tracker)
-$properties['wbchartbeat.uid'] = '';
-$properties['wbchartbeat.domain'] = '';
+$properties['cft.constants']['CHARTBEAT_UID'] = '';
+$properties['cft.constants']['CHARTBEAT_DOMAIN'] = '';
 
 // addthis (sharing widgets)
-$properties['wbaddthis.pubId'] = '';
+$properties['cft.constants']['ADDTHIS_PUB_ID'] = '';
 
 // outbrain (related links/content)
-$properties['wboutbrain.template'] = '';
+$properties['cft.constants']['OUTBRAIN_TEMPLATE'] = '';
 
 // adsonar (sponsored ads)
-$properties['wbadsonar.pid'] = '';
-$properties['wbadsonar.ps'] = '-1';
-$properties['wbadsonar.jv'] = 'ads.adsonar.com';
+$properties['cft.constants']['ADSONAR_PID'] = '';
+$properties['cft.constants']['ADSONAR_PS'] = '-1';
+$properties['cft.constants']['ADSONAR_JV'] = 'ads.adsonar.com';
         ]]>
   </config>
 
