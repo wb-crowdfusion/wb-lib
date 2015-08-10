@@ -61,4 +61,95 @@ class WbdisplayFilterer extends AbstractFilterer
         $linkUrls = null === $this->getParameter('linkUrls') ? true : \StringUtils::strToBool($this->getParameter('linkUrls'));
         return $this->inputClean->autoParagraph($str, $this->getParameter('allowedTags'), $linkUrls);
     }
+
+    /**
+     * Returns a string to json and returns null if it's empty.
+     *
+     * params:
+     * - value
+     *
+     * @return string
+     */
+    public function stringToJson()
+    {
+        $value = trim($this->getParameter('value'));
+        if (!strlen($value)) {
+            return 'null';
+        }
+        return json_encode($value);
+    }
+
+    /**
+     * Returns a string array to json and removes empty items.
+     *
+     * params:
+     * - value - array or delimited string
+     * - delimiter - string, defaults to ','
+     * - lowercase - bool, defaults to false
+     *
+     * @return string
+     */
+    public function stringArrayToJson()
+    {
+        $value = $this->getParameter('value');
+        if (!is_array($value)) {
+            $value = explode($this->getParameter('delimiter', ','), $value);
+        }
+
+        $value = array_map('trim', $value);
+        if (empty($value)) {
+            return '[]';
+        }
+        $value = array_filter($value, 'strlen');
+
+        if ($this->getParameter('lowercase', false)) {
+            $value = array_map('strtolower', $value);
+            if ($this->getParameter('unique', true)) {
+                $value = array_keys(array_flip($value));
+            }
+        } else {
+            if ($this->getParameter('unique', true)) {
+                $value = array_values(array_intersect_key($value, array_unique(array_map('strtolower', $value))));
+            }
+        }
+
+        return json_encode($value);
+    }
+
+    /**
+     * Returns a string array to csv and removes empty items.
+     *
+     * params:
+     * - value - array or delimited string
+     * - delimiter - string, defaults to ","
+     * - lowercase - bool, defaults to false
+     *
+     * @return string
+     */
+    public function stringArrayToCsv()
+    {
+        $value = $this->getParameter('value');
+        if (!is_array($value)) {
+            $value = explode($this->getParameter('delimiter', ','), $value);
+        }
+
+        $value = array_map('trim', $value);
+        if (empty($value)) {
+            return '';
+        }
+        $value = array_filter($value, 'strlen');
+
+        if ($this->getParameter('lowercase', false)) {
+            $value = array_map('strtolower', $value);
+            if ($this->getParameter('unique', true)) {
+                $value = array_keys(array_flip($value));
+            }
+        } else {
+            if ($this->getParameter('unique', true)) {
+                $value = array_values(array_intersect_key($value, array_unique(array_map('strtolower', $value))));
+            }
+        }
+
+        return implode(',', $value);
+    }
 }

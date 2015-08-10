@@ -4,9 +4,11 @@ GumGum Partner JS (no global vars or params)
 
 */ %}
 
+{% set id %}%GUMGUM_ID%{% end %}
+
 {% begin contents %}
 
-<script type="text/javascript">ggv2id = "timewarn";</script>
-<script type="text/javascript" src="//cdn.gumgum.com/javascripts/ggv2.js"></script>
+<script>ggv2id = '%id%' || 'timewarn';</script>
+<script src="//cdn.gumgum.com/javascripts/ggv2.js"></script>
 
 {% end %}

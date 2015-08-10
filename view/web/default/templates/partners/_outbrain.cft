@@ -5,16 +5,15 @@ Outbrain js code.
 */ %}
 
 {% set Permalink %}{% end %}
-{% set CacheTime %}{% filter wbcache-get-duration %}{% end %}
-{% set DEFER %}1{% end %}
+{% set ob_template %}%OUTBRAIN_TEMPLATE%{% end %}
 
 
 {% begin contents %}
 
 {% if Data:Permalink %}
-    <div class="OUTBRAIN" data-src="%Permalink%" data-widget-id="AR_3" data-ob-template="{% filter wboutbrain-template %}"></div>
-    <div class="OUTBRAIN" data-src="%Permalink%" data-widget-id="AR_4" data-ob-template="{% filter wboutbrain-template %}"></div>
-    <script type="text/javascript" async="async" src="//widgets.outbrain.com/outbrain.js"></script>
+  <div class="OUTBRAIN" data-src="%Permalink%" data-widget-id="AR_3" data-ob-template="%ob_template%"></div>
+  <div class="OUTBRAIN" data-src="%Permalink%" data-widget-id="AR_4" data-ob-template="%ob_template%"></div>
+  <script async="async" src="//widgets.outbrain.com/outbrain.js"></script>
 {% endif %}
 
 {% end %}

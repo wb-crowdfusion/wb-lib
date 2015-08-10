@@ -27,6 +27,10 @@
       <title>Primary Image Caption</title>
       <validation datatype="html" allowedtags="*" max="255"/>
     </meta>
+    <meta id="#primary-image-credit">
+      <title>Primary Image Credit</title>
+      <validation datatype="string" max="100"/>
+    </meta>
     <meta id="#primary-image-overlay">
       <title>Primary Image Overlay Text</title>
       <validation datatype="string" max="100"/>

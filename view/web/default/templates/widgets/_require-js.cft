@@ -12,4 +12,3 @@
 
 
 {% begin contents %}{% asset js?src=%JsBaseUrl%%Item%&min=%JsMin% %}{% end %}
-

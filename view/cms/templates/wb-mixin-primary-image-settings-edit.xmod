@@ -16,7 +16,8 @@
       <textbox id="#primary-image-destination-target" width="quarter"/>
     </group>
     <group>
-      <textbox id="#primary-image-caption" width="half"/>
+      <textbox id="#primary-image-caption" width="full"/>
+      <textbox id="#primary-image-credit" width="quarter"/>
       <textbox id="#primary-image-overlay" width="quarter"/>
       <textbox id="#primary-image-overlay-class" width="quarter"/>
     </group>
