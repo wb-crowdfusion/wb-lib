@@ -52,7 +52,7 @@ params:
       <div class="overlay overlay-{% filter slugs-create?value=Data:#primary-image-overlay %} %#primary-image-overlay-class%"><span>{% if Data:HasLink %}<a href="%ImageLink%"{% filter display?value=Data:LinkTarget %}>{% endif %}%#primary-image-overlay%{% if Data:HasLink %}</a>{% endif %}</span></div>
     {% endif %}
     {% if Data:ShowCredit && Data:#primary-image-credit %}
-      <div class="credit">%#primary-image-credit%</div>
+      <div class="credit credit-{% filter slugs-create?value=Data:#primary-image-credit %}">%#primary-image-credit%</div>
     {% endif %}
   </div>
   {% if Data:ShowCaption && Data:#primary-image-caption %}
