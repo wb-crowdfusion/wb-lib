@@ -9,6 +9,7 @@
 
 
 ## v1.1.10
+* Disabled caching editor content.
 * issue #4: Add support for Markdown in article post contents. Add EpicEditor.
 
 
