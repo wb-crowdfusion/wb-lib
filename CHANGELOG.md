@@ -6,10 +6,11 @@
 * Updated `partners/_adsonar.cft` to use wbq and AdsonarAd.
 * Adds `facebook/_sdk-js.cft`
 * Remove all cft filters for misc cfts that can now use cft.constants.
+* Disabled caching editor content.
+* Removed unused "editor.remove" on page exit.
 
 
 ## v1.1.10
-* Disabled caching editor content.
 * issue #4: Add support for Markdown in article post contents. Add EpicEditor.
 
 
