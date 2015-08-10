@@ -28,8 +28,8 @@ $(document).ready(function () {
   var opts = {
     container: '%MetaName%-container',
     textarea: '%MetaName%',
-    clientSideStorage: true,
-    localStorageName: 'epiceditor',
+    clientSideStorage: false,
+    localStorageName: '',
     useNativeFullscreen: true,
     theme: {
       base: '{% asset version?src=js/epiceditor/0.2.2/css/epiceditor.css %}',
