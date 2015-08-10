@@ -60,10 +60,6 @@ $(document).ready(function () {
   editor.on('update', function () {
     $('.button-save, .button-delete').show();
   });
-
-  $('#nav-add-article a, .button-save, .button-delete, .button-cancel').click(function () {
-    editor.remove('%MetaName%-container');
-  });
 });
 </script>
 
