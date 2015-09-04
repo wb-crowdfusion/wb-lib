@@ -1,6 +1,10 @@
 # CHANGELOG
 
 
+## v1.2.1
+* issue #10: Added `arrayToJson` filter.
+
+
 ## v1.2.0
 * issue #7: Added `primary-image-credit` to `wb-mixin-primary-image-settings` aspect.
 * Updated `partners/_adsonar.cft` to use wbq and AdsonarAd.
