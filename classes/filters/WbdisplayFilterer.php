@@ -80,6 +80,23 @@ class WbdisplayFilterer extends AbstractFilterer
     }
 
     /**
+     * Returns an array to json.
+     *
+     * params:
+     * - value
+     *
+     * @return string
+     */
+    public function arrayToJson()
+    {
+        $value = $this->getParameter('value');
+        if (!is_array($value)) {
+            $value = array($value);
+        }
+        return json_encode($value);
+    }
+
+    /**
      * Returns a string array to json and removes empty items.
      *
      * params:
@@ -128,27 +145,7 @@ class WbdisplayFilterer extends AbstractFilterer
      */
     public function stringArrayToCsv()
     {
-        $value = $this->getParameter('value');
-        if (!is_array($value)) {
-            $value = explode($this->getParameter('delimiter', ','), $value);
-        }
-
-        $value = array_map('trim', $value);
-        if (empty($value)) {
-            return '';
-        }
-        $value = array_filter($value, 'strlen');
-
-        if ($this->getParameter('lowercase', false)) {
-            $value = array_map('strtolower', $value);
-            if ($this->getParameter('unique', true)) {
-                $value = array_keys(array_flip($value));
-            }
-        } else {
-            if ($this->getParameter('unique', true)) {
-                $value = array_values(array_intersect_key($value, array_unique(array_map('strtolower', $value))));
-            }
-        }
+        $value = json_decode($this->stringArrayToJson(), true);
 
         return implode(',', $value);
     }

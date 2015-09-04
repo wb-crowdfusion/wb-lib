@@ -2,7 +2,7 @@
 
 
 ## v1.2.1
-* issue #10: Added support for recursive trim on array.
+* issue #10: Added `arrayToJson` filter.
 
 
 ## v1.2.0
