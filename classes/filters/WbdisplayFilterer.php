@@ -96,10 +96,7 @@ class WbdisplayFilterer extends AbstractFilterer
             $value = explode($this->getParameter('delimiter', ','), $value);
         }
 
-        array_walk_recursive($value, function(&$v) {
-            $v = trim($v);
-        });
-
+        $value = array_map('trim', $value);
         if (empty($value)) {
             return '[]';
         }
