@@ -1,0 +1,33 @@
+{% /*
+
+params:
+MetaName (field to be markdowned and populated with data)
+MetaFallback (field to populate data from if original meta field is empty)
+
+*/ %}
+
+{% set RawMeta %}{% filter display-raw?value=Data:#%MetaName% %}{% end %}
+{% set RawFallback %}{% filter display-raw?value=Data:#%MetaFallback% %}{% end %}
+{% set FieldData %}{% if Data:RawMeta %}%RawMeta%{% else %}%RawFallback%{% endif %}{% end %}
+
+{% begin contents %}
+
+{% asset version?src=js/bootstrap-markdown/2.9.0/css/bootstrap-markdown.min.css %}
+{% asset js?src=/js/markdown-js/0.6.0/markdown.js&min=true %}
+{% asset js?src=/js/to-markdown/1.6.0/to-markdown.js&min=true %}
+
+<li class="input-full-width field">
+  <label for="%MetaName%-container">{% filter slugs-unsluggify?value=%MetaName% %} Markdown (<a href="http://daringfireball.net/projects/markdown/syntax" target="_blank">syntax</a>)</label>
+  <div id="%MetaName%-textarea">%FieldData%</div>
+</li>
+
+<script>
+$(document).ready(function () {
+  var opts = {
+    iconlibrary: 'fa',
+  };
+  $('#%MetaName%-textarea').markdown(opts);
+});
+</script>
+
+{% end %}
