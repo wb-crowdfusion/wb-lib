@@ -16,7 +16,7 @@ class WbsourcepointWebController extends NodeWebController
         $apiKey = $this->getRequiredTemplateVariable('ApiKey');
 
         if (!$apiUrl || !$apiKey) {
-            return ['script' => null];
+            return ['data' => ['script' => null]];
         }
 
         try {
@@ -35,12 +35,12 @@ class WbsourcepointWebController extends NodeWebController
             // validate script tag
             // ex: "<script async="async" data-client-id="RXcVfPPwlbdGjwq" type="text/javascript" src="//d3ujids68p6xmq.cloudfront.net/abw.js"></script>"
             if (preg_match('/<script(.*?)(\\/>|<\\/script>)/i', $script) !== false) {
-                return ['script' => $script];
+                return ['data' => ['script' => $script]];
             }
         } catch (\Exception $e) {
             // do nothing
         }
 
-        return ['script' => null];
+        return ['data' => ['script' => null]];
     }
 }
