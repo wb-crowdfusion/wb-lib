@@ -25,7 +25,8 @@ class WbsourcepointWebController extends NodeWebController
             curl_setopt($curl, CURLOPT_URL, sprintf('%s?delivery=script', $this->getRequiredTemplateVariable('ApiUrl')));
             curl_setopt($curl, CURLOPT_HTTPHEADER, [('Authorization: Token %s', $this->getRequiredTemplateVariable('ApiKey'))]);
             curl_setopt($curl, CURLOPT_RETURNTRANSFER, true);
-            curl_setopt($curl, CURLOPT_TIMEOUT, 200);
+            curl_setopt($curl, CURLOPT_CONNECTTIMEOUT, 1);
+            curl_setopt($curl, CURLOPT_TIMEOUT, 1);
 
             $script = curl_exec($curl);
 
