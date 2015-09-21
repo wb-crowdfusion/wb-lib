@@ -3,26 +3,8 @@
 /**
  * Provides functions for getting the sourcepoint js.
  */
-
 class WbsourcepointWebController extends NodeWebController
 {
-    /** @var string */
-    protected $apiKey;
-
-    /** @var string */
-    protected $apiUrl;
-
-    /**
-     * Auto-wired from config 'cft.constants'
-     *
-     * @param array $cftConstants
-     */
-    public function setCftConstants(array $cftConstants)
-    {
-        $this->apiKey = $cftConstants['SOURCEPOINT_API_KEY'];
-        $this->apiUrl = $cftConstants['SOURCEPOINT_API_URL'];
-    }
-
     /**
      * Generates script url.
      *
@@ -30,16 +12,34 @@ class WbsourcepointWebController extends NodeWebController
      */
     public function getAsScript()
     {
-        $curl = curl_init();
+        $apiUrl = $this->getRequiredTemplateVariable('ApiUrl');
+        $apiKey = $this->getRequiredTemplateVariable('ApiKey');
 
-        curl_setopt($curl, CURLOPT_URL, sprintf('%s?delivery=script', $this->apiUrl));
-        curl_setopt($curl, CURLOPT_HTTPHEADER, [('Authorization: Token %s', $this->apiKey)]);
-        curl_setopt($curl, CURLOPT_RETURNTRANSFER, true);
+        if (!$apiUrl || !$apiKey) {
+            return ['script' => null];
+        }
 
-        $response = curl_exec($curl);
+        try {
+            $curl = curl_init();
 
-        curl_close($curl);
+            curl_setopt($curl, CURLOPT_URL, sprintf('%s?delivery=script', $this->getRequiredTemplateVariable('ApiUrl')));
+            curl_setopt($curl, CURLOPT_HTTPHEADER, [('Authorization: Token %s', $this->getRequiredTemplateVariable('ApiKey'))]);
+            curl_setopt($curl, CURLOPT_RETURNTRANSFER, true);
+            curl_setopt($curl, CURLOPT_TIMEOUT, 200);
 
-        return ['Script' => $response];
+            $script = curl_exec($curl);
+
+            curl_close($curl);
+
+            // validate script tag
+            // ex: "<script async="async" data-client-id="RXcVfPPwlbdGjwq" type="text/javascript" src="//d3ujids68p6xmq.cloudfront.net/abw.js"></script>"
+            if (preg_match('/<script(.*?)(\\/>|<\\/script>)/i', $script) !== false) {
+                return ['script' => $script];
+            }
+        } catch (\Exception $e) {
+            // do nothing
+        }
+
+        return ['script' => null];
     }
 }

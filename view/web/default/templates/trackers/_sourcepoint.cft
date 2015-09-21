@@ -1,7 +1,7 @@
-{% set JsBaseUrl %}js/{% end %}
-{% set JsMin %}true{% end %}
+{% set ApiUrl %}%SOURCEPOINT_API_URL%{% end %}
+{% set ApiKey %}%SOURCEPOINT_API_KEY%{% end %}
 {% set DataSource %}wbsourcepoint-get-as-script{% end %}
 {% set CacheTime %}{% filter wbcache-get-duration %}{% end %}
 
 
-{% begin contents %}{% asset js?src=%JsBaseUrl%%Script%&min=%JsMin% %}{% end %}
+{% begin contents %}%script%{% end %}
