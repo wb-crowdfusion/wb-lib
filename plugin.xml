@@ -62,7 +62,7 @@ $properties['cft.constants']['ADSONAR_JV'] = 'ads.adsonar.com';
 
 // sourcepoint
 $properties['cft.constants']['SOURCEPOINT_API_KEY'] = '';
-$properties['cft.constants']['SOURCEPOINT_API_URL'] = 'https://api.sourcepoint.com/script';
+$properties['cft.constants']['SOURCEPOINT_API_URL'] = 'https://api.sourcepoint.com/';
         ]]>
   </config>
 
