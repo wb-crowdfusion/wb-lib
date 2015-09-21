@@ -11,24 +11,18 @@ MetaFallback (field to populate data from if original meta field is empty)
 {% set FieldData %}{% if Data:RawMeta %}%RawMeta%{% else %}%RawFallback%{% endif %}{% end %}
 
 {% begin contents %}
-
-{% asset version?src=js/bootstrap-markdown/2.9.0/css/bootstrap-markdown.min.css %}
-
-{% asset js?src=/js/bootstrap-markdown/2.9.0/bootstrap-markdown.js&min=true %}
-
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
+{% asset css?src=js/bootstrap-markdown/2.9.0/css/bootstrap-markdown.min.css %}
 
 <li class="input-full-width field">
   <label for="%MetaName%-container">{% filter slugs-unsluggify?value=%MetaName% %} Markdown (<a href="http://daringfireball.net/projects/markdown/syntax" target="_blank">syntax</a>)</label>
-  <div id="%MetaName%-textarea">%FieldData%</div>
+  <textarea name="%MetaName%-textarea" data-provide="markdown" data-iconlibrary="fa" rows="10"></textarea>
 </li>
 
-<script>
-$(document).ready(function () {
-  var opts = {
-    iconlibrary: 'fa',
-  };
-  $('#%MetaName%-textarea').markdown(opts);
-});
+<script src="//ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
+<script type='text/javascript'>
+ jQuery.noConflict();
 </script>
-
+{% asset js?src=js/bootstrap-markdown/2.9.0/bootstrap-markdown.js&min=true %}
 {% end %}
+
