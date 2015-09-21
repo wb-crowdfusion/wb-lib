@@ -1,8 +1,11 @@
 # CHANGELOG
 
 
-## v1.2.0
+## v1.3.0
 * issue #13: Load the latest sourcepoint js automatically.
+
+
+## v1.2.0
 * issue #7: Added `primary-image-credit` to `wb-mixin-primary-image-settings` aspect.
 * Updated `partners/_adsonar.cft` to use wbq and AdsonarAd.
 * Adds `facebook/_sdk-js.cft`
