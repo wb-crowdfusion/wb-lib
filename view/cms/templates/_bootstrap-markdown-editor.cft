@@ -16,7 +16,7 @@ MetaFallback (field to populate data from if original meta field is empty)
 
 <li class="input-full-width field">
   <label for="%MetaName%-container">{% filter slugs-unsluggify?value=%MetaName% %} Markdown (<a href="http://daringfireball.net/projects/markdown/syntax" target="_blank">syntax</a>)</label>
-  <textarea name="%MetaName%-textarea" data-provide="markdown" data-iconlibrary="fa" rows="10"></textarea>
+  <textarea name="%MetaName%-textarea" data-provide="markdown" rows="10"></textarea>
 </li>
 
 <script src="//ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
