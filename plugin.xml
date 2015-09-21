@@ -59,6 +59,10 @@ $properties['cft.constants']['OUTBRAIN_TEMPLATE'] = '';
 $properties['cft.constants']['ADSONAR_PID'] = '';
 $properties['cft.constants']['ADSONAR_PS'] = '-1';
 $properties['cft.constants']['ADSONAR_JV'] = 'ads.adsonar.com';
+
+// sourcepoint
+$properties['cft.constants']['SOURCEPOINT_API_KEY'] = '';
+$properties['cft.constants']['SOURCEPOINT_API_URL'] = 'https://api.sourcepoint.com/script';
         ]]>
   </config>
 
