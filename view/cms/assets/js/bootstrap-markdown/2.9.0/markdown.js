@@ -1406,7 +1406,7 @@ function escapeHTML( text ) {
              .replace( />/g, "&gt;" )
              .replace( /"/g, "&quot;" )
              .replace( /'/g, "&#39;" );*/
-  return
+  return text;
 }
 
 function render_tree( jsonml ) {
