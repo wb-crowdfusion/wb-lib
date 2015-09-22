@@ -23,7 +23,7 @@ MetaFallback (field to populate data from if original meta field is empty)
 <script type='text/javascript'>
  jQuery.noConflict();
 </script>
-{% asset js?src=js/bootstrap-markdown/2.9.0/bootstrap-markdown.js&min=true %}]
+{% asset js?src=js/bootstrap-markdown/2.9.0/bootstrap-markdown.js&min=true %}
 {% asset js?src=js/bootstrap-markdown/2.9.0/markdown.js&min=true %}
 {% asset js?src=js/bootstrap-markdown/2.9.0/to-markdown.js&min=true %}
 {% end %}

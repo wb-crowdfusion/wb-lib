@@ -1401,11 +1401,12 @@ expose.renderJsonML = function( jsonml, options ) {
 };
 
 function escapeHTML( text ) {
-  return text.replace( /&/g, "&amp;" )
+  /*return text.replace( /&/g, "&amp;" )
              .replace( /</g, "&lt;" )
              .replace( />/g, "&gt;" )
              .replace( /"/g, "&quot;" )
-             .replace( /'/g, "&#39;" );
+             .replace( /'/g, "&#39;" );*/
+  return
 }
 
 function render_tree( jsonml ) {
