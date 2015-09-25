@@ -12,7 +12,7 @@ class WbsourcepointWebController extends NodeWebController
     protected $cacheTtl = 86400; //24 hours
 
     /** @var int */
-    protected $failedCacheTtl = 3600; //! hours
+    protected $failedCacheTtl = 3600; //1 hour
 
     /**
      * @param \CacheStoreInterface $val
@@ -36,10 +36,10 @@ class WbsourcepointWebController extends NodeWebController
             return ['data' => ['script' => null]];
         }
 
-        $this->Logger->debug('looking in cache for script with cacheKey:' . $this->cacheKey());
+        //$this->Logger->debug('looking in cache for script with cacheKey:' . $this->cacheKey());
         if ($this->distributedCacheStore->containsKey($this->cacheKey())) {
             $cachedScript = $this->distributedCacheStore->get($this->cacheKey());
-            $this->Logger->debug(sprintf('...found a match in DCS for cacheKey: %s', $this->cacheKey()));
+            //$this->Logger->debug(sprintf('...found a match in DCS for cacheKey: %s', $this->cacheKey()));
             return ['data' => ['script' => $cachedScript]];
         }
 
@@ -56,8 +56,8 @@ class WbsourcepointWebController extends NodeWebController
             // validate script tag
             // ex: "<script async="async" data-client-id="RXcVfPPwlbdGjwq" type="text/javascript" src="//d3ujids68p6xmq.cloudfront.net/abw.js"></script>"
             if (preg_match('/<script(.*?)(\\/>|<\\/script>)/i', $script) !== false) {
-                $this->Logger->debug(sprintf('Found script?: %s', $script));
-                $this->Logger->debug(sprintf('Update that cacheKey "%s" with: %s', $this->cacheKey(), $script));
+                //$this->Logger->debug(sprintf('Found script?: %s', $script));
+                //$this->Logger->debug(sprintf('Update that cacheKey "%s" with: %s', $this->cacheKey(), $script));
                 $this->distributedCacheStore->put($this->cacheKey(), $script, $this->cacheTtl);
 
                 return ['data' => ['script' => $script]];
