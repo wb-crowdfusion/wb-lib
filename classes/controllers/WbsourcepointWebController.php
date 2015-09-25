@@ -35,8 +35,8 @@ class WbsourcepointWebController extends AbstractWebController
      */
     protected function getAsScript()
     {
-        $apiUrl = trim($this->getTemplateVariable('ApiUrl'));
-        $apiKey = trim($this->getTemplateVariable('ApiKey'));
+        $apiUrl = trim($this->getTemplateVariable('api_url'));
+        $apiKey = trim($this->getTemplateVariable('api_key'));
 
         $failedValue = '<!--sourcepoint-failed-->';
         $cacheKey = 'wblib:sourcepoint:script';
