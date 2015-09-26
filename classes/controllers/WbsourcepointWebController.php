@@ -60,14 +60,15 @@ class WbsourcepointWebController extends AbstractWebController
             curl_setopt($curl, CURLOPT_RETURNTRANSFER, true);
             curl_setopt($curl, CURLOPT_CONNECTTIMEOUT, 1);
             curl_setopt($curl, CURLOPT_TIMEOUT, 1);
-            $script = curl_exec($curl);
+            $script = trim(curl_exec($curl));
             curl_close($curl);
 
             // validate script tag
             // e.g.: "<script async="async" data-client-id="RXcVfPPwlbdGjwq" type="text/javascript" src="//d3ujids68p6xmq.cloudfront.net/abw.js"></script>"
-            if (preg_match('/<script(.*?)(\\/>|<\\/script>)/i', $script) !== false) {
+            if (preg_match('/^<script/i', $script)) {
                 $this->cacheStore->put($cacheKey, $script, $this->cacheTtl);
             } else {
+                $this->Logger->error(sprintf('Expected a script tag but got: %s', $script));
                 $script = $failedValue;
                 $this->cacheStore->put($cacheKey, $failedValue, $this->failedCacheTtl);
             }
