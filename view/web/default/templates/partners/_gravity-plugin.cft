@@ -1,0 +1,27 @@
+{% /*
+gravity plugin code.
+
+*/ %}
+
+{% set PlacementId %}0{% end %}
+
+{% begin contents %}
+
+<div id="grv-personalization-%PlacementId%"></div>
+<script type='text/javascript'>
+  //<![CDATA[
+    (function(){
+    window.gravityInsightsParams = {
+      'type': 'content',
+      'action': '',
+      'site_guid': '%GRAVITY_SITE_GUID%'
+    };
+    var adServerReq,bUrl,cburl,doUseGravityUserGuid,extPlacementIdOpt,externalPlacementId,includeJs,jq,pfurl,ppid,ppidOpt,type,ug,wlPrefix,wlUrl,_ref,_ref1,_ref2;includeJs=function(a){var b;b=document.createElement("script");b.async=!0;b.src=a;a=document.getElementsByTagName("script")[0];return a.parentNode.insertBefore(b,a)};bUrl="";
+    ug=(doUseGravityUserGuid=!0===gravityInsightsParams.useGravityUserGuid?1:0)?"":gravityInsightsParams.user_guid||(null!=(_ref=/grvinsights=([^;]+)/.exec(document.cookie))?_ref[1]:void 0)||"";
+    wlUrl=(wlPrefix="https:"===location.protocol?"https://secure-api.gravity.com/v1/api/intelligence":"http://rma-api.gravity.com/v1/api/intelligence",jq=(null!=(_ref1=window.jQuery)?null!=(_ref2=_ref1.fn)?_ref2.jquery:void 0:void 0)||"",type="iframe",adServerReq=gravityInsightsParams.ad||"",cburl=gravityInsightsParams.cburl||"",pfurl=gravityInsightsParams.pfurl||"",extPlacementIdOpt=gravityInsightsParams.epl||"",externalPlacementId="${EXTERNAL_PLACEMENT_ID}"!==extPlacementIdOpt?extPlacementIdOpt:"",
+    ppidOpt=gravityInsightsParams.ppid||"",ppid="${PUBLISHER_PLACEMENT_ID}"!==ppidOpt?ppidOpt:"",""+wlPrefix+"/wl?jq="+jq+"&sg="+gravityInsightsParams.site_guid+"&ug="+ug+"&ugug="+doUseGravityUserGuid+"&id=grv-personalization-%PlacementId%&pl=%PlacementId%"+("&type="+type+"&ad="+adServerReq+"&cburl=")+encodeURIComponent(cburl)+"&pfurl="+encodeURIComponent(pfurl)+(""!==externalPlacementId?"&epl="+encodeURIComponent(externalPlacementId):"")+(""!==ppid?"&ppid="+encodeURIComponent(ppid):"")+("&x="+(new Date).getTime())+("undefined"!==
+    typeof forceArticleIds&&null!==forceArticleIds&&forceArticleIds.join?"&ai="+forceArticleIds.join(","):"")+("undefined"!==typeof apids&&null!==apids&&""!==apids?"&apids="+encodeURIComponent(apids):""));bUrl&&includeJs(bUrl);wlUrl&&(window.gravityInsightsParams.sidebar&&(window.gravityInsightsParams.wlStartTime=(new Date).getTime()),includeJs(wlUrl));})();
+  //]]>
+</script>
+
+{% end %}
