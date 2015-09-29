@@ -3,6 +3,7 @@
 
 ## v1.3.0
 * issue #13: Load the latest sourcepoint js automatically.
+* issue #12: Use latest chartbeat code from http://support.chartbeat.com/docs/.
 
 
 ## v1.2.0
