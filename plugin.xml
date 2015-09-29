@@ -55,14 +55,16 @@ $properties['cft.constants']['ADDTHIS_PUB_ID'] = '';
 // outbrain (related links/content)
 $properties['cft.constants']['OUTBRAIN_TEMPLATE'] = '';
 
-// adsonar (sponsored ads)
-$properties['cft.constants']['ADSONAR_PID'] = '';
-$properties['cft.constants']['ADSONAR_PS'] = '-1';
-$properties['cft.constants']['ADSONAR_JV'] = 'ads.adsonar.com';
+// gravity ads - replaces adsonar
+$properties['cft.constants']['GRAVITY_SITE_GUID'] = '';
 
 // sourcepoint
 $properties['cft.constants']['SOURCEPOINT_API_KEY'] = '';
 $properties['cft.constants']['SOURCEPOINT_API_URL'] = 'https://api.sourcepoint.com/';
+
+// markdown editor constants
+$properties['cft.constants']['MDE_IMAGE_TEMPLATE'] = $properties['media.library.dropImageToMarkdownTemplate'];
+$properties['cft.constants']['MDE_LINK_TEMPLATE'] = '<a href="{{url}}">{{title}}</a>';
         ]]>
   </config>
 
