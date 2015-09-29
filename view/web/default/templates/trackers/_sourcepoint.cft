@@ -1,0 +1,7 @@
+{% set api_url %}%SOURCEPOINT_API_URL%{% end %}
+{% set api_key %}%SOURCEPOINT_API_KEY%{% end %}
+{% set DEFER %}1{% end %}
+{% set DataSource %}wbsourcepoint-get-as-script{% end %}
+{% set CacheTime %}{% filter wbcache-get-duration?name=verylong %}{% end %}
+
+{% begin contents %}{% filter display?value=Data:script %}{% end %}

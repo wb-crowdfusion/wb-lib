@@ -1,0 +1,37 @@
+{% /*
+
+params:
+MetaName (field to be markdowned and populated with data)
+MetaFallback (field to populate data from if original meta field is empty)
+
+*/ %}
+
+{% set RawMeta %}{% filter display-raw?value=Data:#%MetaName% %}{% end %}
+{% set RawFallback %}{% filter display-raw?value=Data:#%MetaFallback% %}{% end %}
+{% set FieldData %}{% if Data:RawMeta %}%RawMeta%{% else %}%RawFallback%{% endif %}{% end %}
+
+{% begin contents %}
+
+{% asset css?src=css/glyphicons.css&min=true %}
+{% asset css?src=js/md-editor/md-editor.css&min=true %}
+
+<li class="input-full-width field md-editor-li">
+  <label for="%MetaName%-container">{% filter slugs-unsluggify?value=%MetaName% %} (<a href="http://daringfireball.net/projects/markdown/syntax" target="_blank">syntax</a>)</label>
+  <textarea id="%MetaName%" name="#%MetaName%" rows="10">%FieldData%</textarea>
+</li>
+
+<script src="//ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
+<script>
+var jQuery1_10_2 = jQuery.noConflict(true);
+</script>
+{% asset js?src=js/md-editor/md-editor.js %}
+{% asset js?src=js/md-editor/marked.js %}
+<script>
+jQuery1_10_2(document).ready(function() {
+  jQuery1_10_2('#%MetaName%').markdown({
+    imageTemplate: '{% filter display-raw?value=Data:MDE_IMAGE_TEMPLATE %}'
+  });
+});
+</script>
+
+{% end %}

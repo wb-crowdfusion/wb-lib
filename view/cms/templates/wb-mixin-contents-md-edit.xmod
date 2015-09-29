@@ -14,7 +14,7 @@
       <textbox id="#read-more-link-text" width="quarter"/>
     </group>
     <group>
-      <template src="_epic-editor.cft?MetaName=contents-md&amp;MetaFallback=contents&amp;inherit=true"/>
+      <template src="_md-editor.cft?MetaName=contents-md&amp;MetaFallback=contents&amp;inherit=true"/>
     </group>
     <group>
       <textarea id="#excerpt" width="full" rows="2"/>

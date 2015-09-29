@@ -1,6 +1,13 @@
 # CHANGELOG
 
 
+## v1.3.0
+* issue #15: Adds `/partners/_gravity-beacon.cft` and `partners/_gravity-plugin.cft` for adsonar replacement.
+* issue #14: Setup custom coding drama markdown editor in `_md-editor.cft` and use in `wb-mixin-contents-md-edit.xmod`.
+* issue #13: Load the latest sourcepoint js automatically.
+* issue #12: Use latest chartbeat code from http://support.chartbeat.com/docs/.
+
+
 ## v1.2.0
 * issue #7: Added `primary-image-credit` to `wb-mixin-primary-image-settings` aspect.
 * Updated `partners/_adsonar.cft` to use wbq and AdsonarAd.
