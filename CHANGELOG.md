@@ -1,6 +1,10 @@
 # CHANGELOG
 
 
+## v1.3.1
+* Open sourced, removed private satis reference to wb-crowdfusion since that is also open source.
+
+
 ## v1.3.0
 * issue #15: Adds `/partners/_gravity-beacon.cft` and `partners/_gravity-plugin.cft` for adsonar replacement.
 * issue #14: Setup custom coding drama markdown editor in `_md-editor.cft` and use in `wb-mixin-contents-md-edit.xmod`.
