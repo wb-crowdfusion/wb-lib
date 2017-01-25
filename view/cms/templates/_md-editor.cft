@@ -14,24 +14,88 @@ MetaFallback (field to populate data from if original meta field is empty)
 
 {% asset css?src=css/glyphicons.css&min=true %}
 {% asset css?src=js/md-editor/md-editor.css&min=true %}
+{% asset js?src=js/related-story/WbStoryTagWidget.js&min=true %}
+{% asset js?src=js/related-story/CustomWbStoryTagWidget.js&min=true %}
 
 <li class="input-full-width field md-editor-li">
   <label for="%MetaName%-container">{% filter slugs-unsluggify?value=%MetaName% %} (<a href="http://daringfireball.net/projects/markdown/syntax" target="_blank">syntax</a>)</label>
   <textarea id="%MetaName%" name="#%MetaName%" rows="10">%FieldData%</textarea>
+  <div id="related-story" class="tag-widget media-gallery-tag-widget"></div>
 </li>
 
 <script src="//ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
 <script>
-var jQuery1_10_2 = jQuery.noConflict(true);
+  var jQuery1_10_2 = jQuery.noConflict(true);
 </script>
 {% asset js?src=js/md-editor/md-editor.js %}
 {% asset js?src=js/md-editor/marked.js %}
 <script>
-jQuery1_10_2(document).ready(function() {
   jQuery1_10_2('#%MetaName%').markdown({
-    imageTemplate: '{% filter display-raw?value=Data:MDE_IMAGE_TEMPLATE %}'
+    imageTemplate: '{% filter display-raw?value=Data:MDE_IMAGE_TEMPLATE %}',
+    additionalButtons: [
+      [{
+        name: "groupLink",
+        data: [{
+          name: "cmdStory",
+          toggle: true, // this param only take effect if you load bootstrap.js
+          title: "Story",
+          id: "related-story",
+          callback: function(e){
+            //console.log(wbT.activateWidget(e));
+            // Replace selection with some drinks
+            /* var chunk, cursor,
+             selected = e.getSelection(), content = e.getContent(),
+             drinks = ["Heinekken", "Budweiser",
+             "Iron City", "Amstel Light",
+             "Red Stripe", "Smithwicks",
+             "Westvleteren", "Sierra Nevada",
+             "Guinness", "Corona", "Calsberg"],
+             index = Math.floor((Math.random()*10)+1)
+
+
+             // Give random drink
+             chunk = drinks[index]
+
+             // transform selection and set the cursor into chunked text
+             e.replaceSelection(chunk)
+             cursor = selected.start
+
+             // Set the cursor
+             e.setSelection(cursor,cursor+chunk.length) */
+          }
+        }]
+      }]
+    ]
+  })
+</script>
+<script>
+  var wbT;
+  $(document).ready(function() {
+    wbT = new WbStoryTagWidget(
+      document.taggableRecord,
+      new TagPartial('@wb-denormalized-teasers#related-teasers'),
+      '#related-story',
+      {
+        Label: '',
+        ShowLabelWhenEmpty: false,
+        ActivateButtonLabel: 'Photos',
+        SearchParameters: {'search_sort': 'date-desc'},
+        AllowQuickAdd: true,
+        QuickAddElement: '@wb-photos',
+        QuickAddNonce: '{% filter nonce?action=media-quick-add %}',
+        EditNonce: '{% filter nonce?action=node-edit %}',
+        AllowMultiple: false,
+        AllowRemoveUndo: false,
+        AllowReorderChosenList: false,
+        TagPrepend: true,
+        IsNewControlAction: false,
+        IsFieldLike: true,
+        ForceElementSelection: true,
+        ShowElementAndStatus: false,
+        ReadOnly: true
+      }
+    );
   });
-});
 </script>
 
 {% end %}
