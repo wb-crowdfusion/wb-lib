@@ -67,7 +67,7 @@ MetaFallback (field to populate data from if original meta field is empty)
           icon: { glyph: 'glyphicon glyphicon-plus-sign', fa: 'fa fa-plus-circle', 'fa-3': 'icon-plus-sign' },
           callback: function(e){
             var event = jQuery.Event( "click" );
-            wbRelatedLink.activateWidget.apply(wbT,[event]);
+            wbRelatedLink.activateWidget.apply(wbRelatedLink,[event]);
           }
         }]
       }]
