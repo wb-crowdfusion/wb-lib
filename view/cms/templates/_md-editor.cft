@@ -20,11 +20,11 @@ MetaFallback (field to populate data from if original meta field is empty)
   <textarea id="%MetaName%" name="#%MetaName%" rows="10">%FieldData%</textarea>
 </li>
 <script type="text/javascript">
-  var wbT;
+  var wbRelatedLink;
   $(document).ready(function() {
-    wbT = new WbStoryTagWidget(
+    wbRelatedLink = new WbRelatedLinkTagWidget(
       document.taggableRecord,
-      new TagPartial('@wb-denormalized-teasers#story'),
+      new TagPartial('@wb-denormalized-teasers#related-link'),
       "button[title='Related Link']",
       {
         Label: '',
@@ -49,8 +49,8 @@ MetaFallback (field to populate data from if original meta field is empty)
 <script>
   var jQuery1_10_2 = jQuery.noConflict(true);
 </script>
-{% asset js?src=js/WbStoryTagWidget.js&min=true %}
-{% asset js?src=js/CustomWbStoryTagWidget.js&min=true %}
+{% asset js?src=js/WbRelatedLinkTagWidget.js&min=true %}
+{% asset js?src=js/CustomWbRelatedLinkTagWidget.js&min=true %}
 {% asset js?src=js/md-editor/md-editor.js %}
 {% asset js?src=js/md-editor/marked.js %}
 
@@ -67,7 +67,7 @@ MetaFallback (field to populate data from if original meta field is empty)
           icon: { glyph: 'glyphicon glyphicon-plus-sign', fa: 'fa fa-plus-circle', 'fa-3': 'icon-plus-sign' },
           callback: function(e){
             var event = jQuery.Event( "click" );
-            wbT.activateWidget.apply(wbT,[event]);
+            wbRelatedLink.activateWidget.apply(wbT,[event]);
           }
         }]
       }]

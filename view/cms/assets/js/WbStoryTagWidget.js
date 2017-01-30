@@ -4,18 +4,18 @@
  *
  * these tag widgets are disgusting
  */
-var WbStoryTagWidget = function (node, tagPartial, domID, options, mdContainer) {
+var WbRelatedLinkTagWidget = function (node, tagPartial, domID, options, mdContainer) {
   options = $.extend({
     ShowThumbnailsInSearchResults: true
   }, options || {});
 
-  WbStoryTagWidget.superclass.constructor.call(this, node, tagPartial, domID, options);
+  WbRelatedLinkTagWidget.superclass.constructor.call(this, node, tagPartial, domID, options);
   this.DOM.mdContainer = $(mdContainer);
 };
-extend(WbStoryTagWidget, NodeTagWidget);
+extend(WbRelatedLinkTagWidget, NodeTagWidget);
 
 //EXTERNAL EVENT HANDLERS
-WbStoryTagWidget.prototype._handlePostInitialize = function() {
+WbRelatedLinkTagWidget.prototype._handlePostInitialize = function() {
   var me = this;
 
   // Add button back that markdown added that was removed by TagWidget during initialization
@@ -26,7 +26,7 @@ WbStoryTagWidget.prototype._handlePostInitialize = function() {
   me.DOM.container.after(me.DOM.searchContainer);
 };
 
-WbStoryTagWidget.prototype.enterSearchKeyword = function (keyword) {
+WbRelatedLinkTagWidget.prototype.enterSearchKeyword = function (keyword) {
   var me = this;
 
   if (keyword == AbstractTagWidget.CONSTANTS.START_TYPING || keyword.length < 2) {
@@ -71,7 +71,7 @@ WbStoryTagWidget.prototype.enterSearchKeyword = function (keyword) {
   });
 };
 
-WbStoryTagWidget.prototype.scroll = function (event) {
+WbRelatedLinkTagWidget.prototype.scroll = function (event) {
   //SEARCH RESULTS FULLY LOADED, NO NEED TO CONTINUE
   if (this.TotalRecords == this.DOM.searchResultsList.children().length) {
     return;
@@ -129,7 +129,7 @@ WbStoryTagWidget.prototype.scroll = function (event) {
   }
 };
 
-WbStoryTagWidget.prototype._postRenderSearchResult = function (li, node, index, total) {
+WbRelatedLinkTagWidget.prototype._postRenderSearchResult = function (li, node, index, total) {
   var $link = $(li).find('.choice-link');
   var $em = $link.find('em');
 
@@ -148,7 +148,7 @@ WbStoryTagWidget.prototype._postRenderSearchResult = function (li, node, index, 
   }
 };
 
-WbStoryTagWidget.prototype._postRenderChosen = function(li, index){
+WbRelatedLinkTagWidget.prototype._postRenderChosen = function(li, index){
   var me = this;
   var mdTextarea = $(me.DOM.mdContainer)[0];
 
@@ -191,6 +191,6 @@ WbStoryTagWidget.prototype._postRenderChosen = function(li, index){
  * @param {string} str
  * @returns {string}
  */
-WbStoryTagWidget.prototype._postRenderSearchResultFilterText = function (node, str) {
+WbRelatedLinkTagWidget.prototype._postRenderSearchResultFilterText = function (node, str) {
   return str;
 };

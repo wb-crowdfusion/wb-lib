@@ -9,7 +9,7 @@
  * @returns {string}
  */
 /*
- WbStoryTagWidget.prototype._postRenderSearchResultFilterText = function (node, str) {
+ WbRelatedLinkTagWidget.prototype._postRenderSearchResultFilterText = function (node, str) {
  return str;
  };
  */
