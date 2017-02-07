@@ -1,6 +1,10 @@
 # CHANGELOG
 
 
+## v1.4.0
+* Add button to md editor to allow insertion of related link `[[related-link id="xxx"]]`
+
+
 ## v1.3.1
 * Open sourced, removed private satis reference to wb-crowdfusion since that is also open source.
 
