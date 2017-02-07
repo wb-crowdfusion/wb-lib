@@ -2,7 +2,8 @@
 
 
 ## v1.4.0
-* Add button to md editor to allow insertion of related link `[[related-link id="xxx"]]`
+* Add button to md editor to allow insertion of related link shortcode `[[related-link id="xxx"]]`.
+* Shortcode handler at site level will need to be updated to handle new shortcode.
 
 
 ## v1.3.1
