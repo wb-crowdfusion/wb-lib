@@ -2,7 +2,7 @@
 
 
 ## v1.4.0
-* Add button to md editor to allow insertion of related link shortcode `[[related-link id="xxx"]]`.
+* Add button to md editor to allow insertion of teaser embed shortcode `[[teaser-embed id="xxx"]]`.
 * Shortcode handler at site level will need to be updated to handle new shortcode.
 
 
