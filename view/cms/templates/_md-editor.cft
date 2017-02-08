@@ -20,12 +20,12 @@ MetaFallback (field to populate data from if original meta field is empty)
   <textarea id="%MetaName%" name="#%MetaName%" rows="10">%FieldData%</textarea>
 </li>
 <script type="text/javascript">
-  var wbRelatedLink;
+  var wbTeaserEmbed;
   $(document).ready(function() {
-    wbRelatedLink = new WbRelatedLinkTagWidget(
+    wbTeaserEmbed = new WbTeaserEmbedTagWidget(
       document.taggableRecord,
-      new TagPartial('@wb-denormalized-teasers#related-link'),
-      "button[title='Related Link']",
+      new TagPartial('@wb-denormalized-teasers#teaser-embed'),
+      "button[title='Teaser Embed']",
       {
         Label: '',
         AllowMultiple: false,
@@ -49,8 +49,8 @@ MetaFallback (field to populate data from if original meta field is empty)
 <script>
   var jQuery1_10_2 = jQuery.noConflict(true);
 </script>
-{% asset js?src=js/WbRelatedLinkTagWidget.js&min=true %}
-{% asset js?src=js/CustomWbRelatedLinkTagWidget.js&min=true %}
+{% asset js?src=js/WbTeaserEmbedTagWidget.js&min=true %}
+{% asset js?src=js/CustomWbTeaserEmbedTagWidget.js&min=true %}
 {% asset js?src=js/md-editor/md-editor.js %}
 {% asset js?src=js/md-editor/marked.js %}
 
@@ -61,13 +61,13 @@ MetaFallback (field to populate data from if original meta field is empty)
       [{
         name: "groupLink",
         data: [{
-          name: "cmdRelatedLink",
+          name: "cmdTeaserEmbed",
           toggle: true, // this param only take effect if you load bootstrap.js
-          title: "Related Link",
+          title: "Teaser Embed",
           icon: { glyph: 'glyphicon glyphicon-plus-sign', fa: 'fa fa-plus-circle', 'fa-3': 'icon-plus-sign' },
           callback: function(e){
             var event = jQuery.Event( "click" );
-            wbRelatedLink.activateWidget.apply(wbRelatedLink,[event]);
+            wbTeaserEmbed.activateWidget.apply(wbTeaserEmbed,[event]);
           }
         }]
       }]

@@ -1,21 +1,20 @@
 /**
- * Customizes the tag widget so it tells the user if they are
- * selecting a teaser or not.
+ * Tag widget to display when embedding a teaser
  *
  * these tag widgets are disgusting
  */
-var WbRelatedLinkTagWidget = function (node, tagPartial, domID, options, mdContainer) {
+var WbTeaserEmbedTagWidget = function (node, tagPartial, domID, options, mdContainer) {
   options = $.extend({
     ShowThumbnailsInSearchResults: true
   }, options || {});
 
-  WbRelatedLinkTagWidget.superclass.constructor.call(this, node, tagPartial, domID, options);
+  WbTeaserEmbedTagWidget.superclass.constructor.call(this, node, tagPartial, domID, options);
   this.DOM.mdContainer = $(mdContainer);
 };
-extend(WbRelatedLinkTagWidget, NodeTagWidget);
+extend(WbTeaserEmbedTagWidget, NodeTagWidget);
 
 //EXTERNAL EVENT HANDLERS
-WbRelatedLinkTagWidget.prototype._handlePostInitialize = function() {
+WbTeaserEmbedTagWidget.prototype._handlePostInitialize = function() {
   var me = this;
 
   // Add button back that markdown added that was removed by TagWidget during initialization
@@ -26,7 +25,7 @@ WbRelatedLinkTagWidget.prototype._handlePostInitialize = function() {
   me.DOM.container.after(me.DOM.searchContainer);
 };
 
-WbRelatedLinkTagWidget.prototype.enterSearchKeyword = function (keyword) {
+WbTeaserEmbedTagWidget.prototype.enterSearchKeyword = function (keyword) {
   var me = this;
 
   if (keyword == AbstractTagWidget.CONSTANTS.START_TYPING || keyword.length < 2) {
@@ -71,7 +70,7 @@ WbRelatedLinkTagWidget.prototype.enterSearchKeyword = function (keyword) {
   });
 };
 
-WbRelatedLinkTagWidget.prototype.scroll = function (event) {
+WbTeaserEmbedTagWidget.prototype.scroll = function (event) {
   //SEARCH RESULTS FULLY LOADED, NO NEED TO CONTINUE
   if (this.TotalRecords == this.DOM.searchResultsList.children().length) {
     return;
@@ -129,7 +128,7 @@ WbRelatedLinkTagWidget.prototype.scroll = function (event) {
   }
 };
 
-WbRelatedLinkTagWidget.prototype._postRenderSearchResult = function (li, node, index, total) {
+WbTeaserEmbedTagWidget.prototype._postRenderSearchResult = function (li, node, index, total) {
   var $link = $(li).find('.choice-link');
   var $em = $link.find('em');
 
@@ -148,7 +147,7 @@ WbRelatedLinkTagWidget.prototype._postRenderSearchResult = function (li, node, i
   }
 };
 
-WbRelatedLinkTagWidget.prototype._postRenderChosen = function(li, index){
+WbTeaserEmbedTagWidget.prototype._postRenderChosen = function(li, index){
   var me = this;
   var mdTextarea = $(me.DOM.mdContainer)[0];
 
@@ -191,6 +190,6 @@ WbRelatedLinkTagWidget.prototype._postRenderChosen = function(li, index){
  * @param {string} str
  * @returns {string}
  */
-WbRelatedLinkTagWidget.prototype._postRenderSearchResultFilterText = function (node, str) {
+WbTeaserEmbedTagWidget.prototype._postRenderSearchResultFilterText = function (node, str) {
   return str;
 };
