@@ -154,9 +154,9 @@ WbTeaserEmbedTagWidget.prototype._postRenderChosen = function(li, index){
   console.log(me.taggableObject.outTags);
   if(me.taggableObject.outTags.length == 0) return;
   $.each(me.taggableObject.outTags.reverse(), function(i, tag) {
-    if (tag.TagElement === 'denormalized-teaser' && tag.TagRole === 'related-link') {
+    if (tag.TagElement === 'denormalized-teaser' && tag.TagRole === 'teaser-embed') {
 
-      var shortCode = '[[related-link id="' + tag.TagSlug + '"]]';
+      var shortCode = '[[teaser-embed id="' + tag.TagSlug + '"]]';
       var selectedLength = mdTextarea.selectionEnd - mdTextarea.selectionStart;
 
       var selected = {
