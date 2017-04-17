@@ -1276,6 +1276,7 @@ if (typeof module !== 'undefined' && typeof exports === 'object') {
   module.exports = marked;
 } else if (typeof define === 'function' && define.amd) {
   define(function() { return marked; });
+  this.marked = marked;
 } else {
   this.marked = marked;
 }
