@@ -1,5 +1,8 @@
 # CHANGELOG
 
+## v1.3.2
+* issue #18: Fix markdown preview to work with crowdfusion v3.2.13 and higher.
+
 
 ## v1.3.1
 * Open sourced, removed private satis reference to wb-crowdfusion since that is also open source.
