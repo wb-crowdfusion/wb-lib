@@ -4,11 +4,6 @@
 * issue #18: Fix markdown preview to work with crowdfusion v3.2.13 and higher.
 
 
-## v1.4.0
-* Add button to md editor to allow insertion of teaser embed shortcode `[[teaser-embed id="xxx"]]`.
-* Shortcode handler at site level will need to be updated to handle new shortcode.
-
-
 ## v1.3.1
 * Open sourced, removed private satis reference to wb-crowdfusion since that is also open source.
 

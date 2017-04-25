@@ -6,7 +6,7 @@
     <description>Provides various aspects, classes and templates for common functionality used on WB sites.
     </description>
     <priority>100</priority>
-    <version>1.4.0</version>
+    <version>1.3.2</version>
   </info>
 
   <config>
