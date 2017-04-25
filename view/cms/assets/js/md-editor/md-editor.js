@@ -117,7 +117,8 @@
               'tabindex': tabIndex,
               'data-provider': ns,
               'data-handler': buttonHandler,
-              'data-hotkey': hotkey
+              'data-hotkey': hotkey,
+              'id' : button.id
             });
             if (button.toggle === true){
               buttonContainer.attr('data-toggle', 'button');
@@ -630,7 +631,7 @@
           return { start: e.selectionStart, end: e.selectionEnd, length: l, text: e.value.substr(e.selectionStart, l) };
         }) ||
 
-          /* browser not supported */
+        /* browser not supported */
         function() {
           return null;
         }
@@ -651,7 +652,7 @@
           return;
         }) ||
 
-          /* browser not supported */
+        /* browser not supported */
         function() {
           return null;
         }
@@ -673,7 +674,7 @@
           return this;
         }) ||
 
-          /* browser not supported */
+        /* browser not supported */
         function() {
           e.value += text;
           return jQuery(e);
