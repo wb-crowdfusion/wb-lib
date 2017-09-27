@@ -1,5 +1,9 @@
 # CHANGELOG
 
+## v1.4.0
+* issue #21: Change default version of facebook api to v2.10.
+
+
 ## v1.3.2
 * issue #18: Fix markdown preview to work with crowdfusion v3.2.13 and higher.
 
