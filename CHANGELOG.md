@@ -1,9 +1,15 @@
 # CHANGELOG
 
+## v1.5.0
+* issue #21: Change default version of facebook api to v2.10
+
 
 ## v1.4.0
-* Add button to md editor to allow insertion of teaser embed shortcode `[[teaser-embed id="xxx"]]`.
-* Shortcode handler at site level will need to be updated to handle new shortcode.
+* issue #21: Change default version of facebook api to v2.10.
+
+
+## v1.3.2
+* issue #18: Fix markdown preview to work with crowdfusion v3.2.13 and higher.
 
 
 ## v1.3.2
