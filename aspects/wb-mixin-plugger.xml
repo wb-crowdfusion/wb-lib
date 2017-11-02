@@ -13,7 +13,7 @@
   <meta_defs>
     <meta id="#plugger-id">
       <title>Plugger Id</title>
-      <validation datatype="string" max="20"/>
+      <validation datatype="string"/>
     </meta>
   </meta_defs>
 
