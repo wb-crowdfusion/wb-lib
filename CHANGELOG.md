@@ -1,5 +1,10 @@
 # CHANGELOG
 
+
+## v1.4.1
+* Remove `max` from `#plugger-id` meta on `wb-mixin-plugger` so we can use uuid.
+
+
 ## v1.4.0
 * issue #21: Change default version of facebook api to v2.10.
 
