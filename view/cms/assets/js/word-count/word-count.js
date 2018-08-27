@@ -13,22 +13,19 @@ var WordCount = (function () {
    * @constructor
    */
   function WordCount(elementId) {
-    var limit = arguments.length <= 1 || arguments[1] === undefined ? 20 : arguments[1];
-
     _classCallCheck(this, WordCount);
 
     this.elementId = elementId;
-    this.limit = limit;
     this.$targetElement = $('#' + elementId);
     this.$counterLabel = null;
 
     this.createCounterLabel();
 
-    this.updateCharacterCount();
+    this.updateWordCount();
 
     this.$targetElement
-      .blur(this.updateCharacterCount.bind(this))
-      .keyup(this.updateCharacterCount.bind(this));
+      .blur(this.updateWordCount.bind(this))
+      .keyup(this.updateWordCount.bind(this));
   }
 
 
@@ -36,28 +33,24 @@ var WordCount = (function () {
    * Creates counter span field
    */
   WordCount.prototype.createCounterLabel = function createCounterLabel() {
-    var id = this.elementId + '-counter';
     var $counterLabel = $('<span/>').attr('class', 'word-count');
     this.$targetElement.after($counterLabel);
     this.$counterLabel = $counterLabel;
   };
 
-
   /**
-   * Update Character Count
+   * Update Word Count
    */
-  WordCount.prototype.updateCharacterCount = function updateCharacterCount() {
-    var currentLength = this.$targetElement.val().length;
-    var remaining = this.limit - currentLength;
-    var warningCss = 'warning';
+  WordCount.prototype.updateWordCount = function updateCharacterCount() {
+    var words = this.$targetElement.val();
 
-    this.$counterLabel.html(remaining + ' characters remaining');
+    words = words.replace(/(^\s*)|(\s*$)/gi,"");//exclude  start and end white-space
+    words = words.replace(/[ ]{2,}/gi," ");//2 or more space to 1
+    words = words.replace(/\n /,"\n"); // exclude newline with a start spacing
 
-    if (remaining > -1) {
-      this.$counterLabel.removeClass(warningCss);
-    } else {
-      this.$counterLabel.addClass(warningCss);
-    }
+    var count = words.split(' ').filter(function(str){return str!="";}).length;
+
+    this.$counterLabel.html(count + (count > 1 ? ' words' : ' word'));
   };
 
   return WordCount;
