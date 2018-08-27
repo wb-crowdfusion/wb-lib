@@ -14,6 +14,7 @@ MetaFallback (field to populate data from if original meta field is empty)
 
 {% asset css?src=css/glyphicons.css&min=true %}
 {% asset css?src=js/md-editor/md-editor.css&min=true %}
+{% asset css?src=js/word-count/word-count.css&min=true %}
 
 <li class="input-full-width field md-editor-li">
   <label for="%MetaName%-container">{% filter slugs-unsluggify?value=%MetaName% %} (<a href="http://daringfireball.net/projects/markdown/syntax" target="_blank">syntax</a>)</label>
@@ -53,6 +54,8 @@ MetaFallback (field to populate data from if original meta field is empty)
 {% asset js?src=js/CustomWbTeaserEmbedTagWidget.js&min=true %}
 {% asset js?src=js/md-editor/md-editor.js %}
 {% asset js?src=js/md-editor/marked.js %}
+{% asset js?src=js/word-count/word-count.js %}
+
 
 <script>
   jQuery1_10_2('#%MetaName%').markdown({
@@ -74,4 +77,6 @@ MetaFallback (field to populate data from if original meta field is empty)
     ]
   })
 </script>
+
+<script>$(function(){new WordCount('#%MetaName%', 70);});</script>
 {% end %}
