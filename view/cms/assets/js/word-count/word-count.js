@@ -9,14 +9,15 @@ var WordCount = (function () {
 
   /**
    * @param {String} elementId
-   * @param {Number} limit
    * @constructor
    */
   function WordCount(elementId) {
     _classCallCheck(this, WordCount);
 
     this.elementId = elementId;
+
     this.$targetElement = $('#' + elementId);
+
     this.$counterLabel = null;
 
     this.createCounterLabel();
@@ -34,7 +35,7 @@ var WordCount = (function () {
    */
   WordCount.prototype.createCounterLabel = function createCounterLabel() {
     var $counterLabel = $('<span/>').attr('class', 'word-count');
-    this.$targetElement.after($counterLabel);
+    $('.md-editor').after($counterLabel);
     this.$counterLabel = $counterLabel;
   };
 
@@ -43,12 +44,13 @@ var WordCount = (function () {
    */
   WordCount.prototype.updateWordCount = function updateCharacterCount() {
     var words = this.$targetElement.val();
+    words = words.replace(/\[\[[\w-=" ]+\]\]/gi,""); // exclude shortcodes
 
-    words = words.replace(/(^\s*)|(\s*$)/gi,"");//exclude  start and end white-space
-    words = words.replace(/[ ]{2,}/gi," ");//2 or more space to 1
-    words = words.replace(/\n /,"\n"); // exclude newline with a start spacing
+    // Convert markdown to html tags then remove html tags to get approximate word count
+    var md = (marked(words));
+    words = $(md).text();
 
-    var count = words.split(' ').filter(function(str){return str!="";}).length;
+    var count = words.split(/[\s]+/).filter(function(str){return str!="";}).length;
 
     this.$counterLabel.html(count + (count > 1 ? ' words' : ' word'));
   };
