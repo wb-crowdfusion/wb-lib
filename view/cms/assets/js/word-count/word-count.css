@@ -3,10 +3,6 @@ span.word-count {
   font-size: smaller;
 }
 
-span.word-count.warning {
-  color: orangered;
-}
-
 #page-title span.word-count {
   padding-bottom: 10px;
 }
