@@ -78,5 +78,5 @@ MetaFallback (field to populate data from if original meta field is empty)
   })
 </script>
 
-<script>$(function(){new WordCount('%MetaName%', 70);});</script>
+<script>$(function(){new WordCount('%MetaName%');});</script>
 {% end %}
