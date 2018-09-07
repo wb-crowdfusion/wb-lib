@@ -1,5 +1,7 @@
 # CHANGELOG
 
+## v1.4.2
+* Added support for sourcepoint delivery methods and JSON response.
 
 ## v1.4.1
 * Remove `max` from `#plugger-id` meta on `wb-mixin-plugger` so we can use uuid.
