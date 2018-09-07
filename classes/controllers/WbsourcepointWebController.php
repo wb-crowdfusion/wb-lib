@@ -31,15 +31,28 @@ class WbsourcepointWebController extends AbstractWebController
     /**
      * Gets a script url from sourcepoint and caches it for a day.
      *
+     * Accepts the following arguments:
+     *  delivery = script | inline | bundle
+     *  response = json
+     *
+     * Note: JSON response is only supported when delivery is set to script.
+     *
      * @return array
      */
-    protected function getAsScript()
+    protected function getScript()
     {
         $apiUrl = trim($this->getTemplateVariable('api_url'));
         $apiKey = trim($this->getTemplateVariable('api_key'));
 
-        $failedValue = '<!--sourcepoint-failed-->';
-        $cacheKey = 'wblib:sourcepoint:script';
+        $delivery = $this->getTemplateVariable('delivery');
+        if (!$delivery) {
+            $delivery = 'script';
+        }
+        $response = $this->getTemplateVariable('response');
+
+        $failedValue = ($delivery === 'script' && $response === 'json') ?
+            '{} /* sourcepoint failed */' : '<!--sourcepoint-failed-->';
+        $cacheKey = sprintf('wblib:sourcepoint:script:%s:%s', $delivery, $response);
 
         if (empty($apiUrl) || empty($apiKey)) {
             return ['data' => ['script' => $failedValue]];
@@ -50,7 +63,7 @@ class WbsourcepointWebController extends AbstractWebController
             return ['data' => ['script' => $cachedScript]];
         }
 
-        $scriptEndpoint = sprintf('%sscript?delivery=script', $apiUrl);
+        $scriptEndpoint = sprintf('%sscript/detection?delivery=%s', $apiUrl, $delivery);
         $script = null;
 
         try {
@@ -63,9 +76,18 @@ class WbsourcepointWebController extends AbstractWebController
             $script = trim(curl_exec($curl));
             curl_close($curl);
 
-            // validate script tag
+            // validate script tag if not bundle
             // e.g.: "<script async="async" data-client-id="RXcVfPPwlbdGjwq" type="text/javascript" src="//d3ujids68p6xmq.cloudfront.net/abw.js"></script>"
-            if (preg_match('/^<script/i', $script)) {
+            $hasScriptTag = preg_match('/^<script/i', $script);
+            if ($delivery === 'script' && $response === 'json' && $hasScriptTag) {
+                $el = new SimpleXmlElement($script);
+                $attributes = (array) $el->attributes();
+                $attributesArr = $attributes['@attributes'];
+                $script = json_encode($attributesArr);
+                $this->cacheStore->put($cacheKey, $script, $this->cacheTtl);
+            } else if ($delivery !== 'bundle' && $hasScriptTag) {
+                $this->cacheStore->put($cacheKey, $script, $this->cacheTtl);
+            } else if ($delivery === 'bundle' && !$hasScriptTag) {
                 $this->cacheStore->put($cacheKey, $script, $this->cacheTtl);
             } else {
                 $this->Logger->error(sprintf('Expected a script tag but got: %s', $script));
