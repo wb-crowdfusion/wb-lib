@@ -73,24 +73,29 @@ class WbsourcepointWebController extends AbstractWebController
             curl_setopt($curl, CURLOPT_RETURNTRANSFER, true);
             curl_setopt($curl, CURLOPT_CONNECTTIMEOUT, 1);
             curl_setopt($curl, CURLOPT_TIMEOUT, 1);
+
             $script = trim(curl_exec($curl));
+            $httpCode = curl_getinfo($curl, CURLINFO_HTTP_CODE);
+
             curl_close($curl);
 
-            // validate script tag if not bundle
-            // e.g.: "<script async="async" data-client-id="RXcVfPPwlbdGjwq" type="text/javascript" src="//d3ujids68p6xmq.cloudfront.net/abw.js"></script>"
-            $hasScriptTag = preg_match('/^<script/i', $script);
-            if ($delivery === 'script' && $response === 'json' && $hasScriptTag) {
-                $el = new SimpleXmlElement($script);
-                $attributes = (array) $el->attributes();
-                $attributesArr = $attributes['@attributes'];
-                $script = json_encode($attributesArr);
-                $this->cacheStore->put($cacheKey, $script, $this->cacheTtl);
-            } else if ($delivery !== 'bundle' && $hasScriptTag) {
-                $this->cacheStore->put($cacheKey, $script, $this->cacheTtl);
-            } else if ($delivery === 'bundle' && !$hasScriptTag) {
-                $this->cacheStore->put($cacheKey, $script, $this->cacheTtl);
+            if ((200 <= $httpCode) && ($httpCode < 400)) {
+                if ($delivery === 'script' && $response === 'json') {
+                    $el = new SimpleXmlElement($script);
+                    $attributes = (array) $el->attributes();
+                    $attributesArr = $attributes['@attributes'];
+                    $script = json_encode($attributesArr);
+                    $this->cacheStore->put($cacheKey, $script, $this->cacheTtl);
+                } else {
+                    // This can be a number of different formats
+                    // URL: https://analytics.sourcepoint.com/doc/index#get-script-as-tag-on-page
+                    // e.g.: <script async="async" data-client-id="YOUR_CLIENT_ID" type="text/javascript" src="//d3ujids68p6xmq.cloudfront.net/abw.js"></script>
+                    // e.g.: <script data-client-id="YOUR_CLIENT_ID" type="text/javascript">function detect() {};</script>
+                    // e.g.: function detect() {};
+                    $this->cacheStore->put($cacheKey, $script, $this->cacheTtl);
+                }
             } else {
-                $this->Logger->error(sprintf('Expected a script tag but got: %s', $script));
+                $this->Logger->error(sprintf('Received an HTTP error code: %s', $httpCode));
                 $script = $failedValue;
                 $this->cacheStore->put($cacheKey, $failedValue, $this->failedCacheTtl);
             }
