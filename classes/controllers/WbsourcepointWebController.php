@@ -29,6 +29,14 @@ class WbsourcepointWebController extends AbstractWebController
     }
 
     /**
+     * Please use getScript() going forward.
+     * @deprecated
+     */
+    public function getAsScript() {
+        return $this->getScript();
+    }
+
+    /**
      * Gets a script url from sourcepoint and caches it for a day.
      *
      * Accepts the following arguments:
