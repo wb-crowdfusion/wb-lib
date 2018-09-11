@@ -1,0 +1,9 @@
+span.word-count {
+  display: block;
+  font-size: smaller;
+}
+
+#page-title span.word-count {
+  padding-bottom: 10px;
+}
+
