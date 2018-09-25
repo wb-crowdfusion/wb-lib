@@ -1,6 +1,10 @@
 # CHANGELOG
 
 
+## v1.4.2
+* issue #154:  Remove instagram and twitter embed from word count
+
+
 ## v1.4.1
 * issue #24:  Add word count to contents
 

@@ -45,6 +45,8 @@ var WordCount = (function () {
   WordCount.prototype.updateWordCount = function updateCharacterCount() {
     var words = this.$targetElement.val();
     words = words.replace(/\[\[[\w-=" ]+\]\]/gi,""); // exclude shortcodes
+    words = words.replace(/<blockquote class="instagram-media" .*<\/blockquote>/gi,""); // exclude instagram
+    words = words.replace(/<blockquote class="twitter-tweet" .*<\/blockquote>/gi,""); // exclude twitter
 
     // Convert markdown to html tags then remove html tags to get approximate word count
     var md = (marked(words));
